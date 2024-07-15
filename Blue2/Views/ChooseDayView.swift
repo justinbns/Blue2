@@ -15,7 +15,6 @@ struct ChooseDayView: View {
         _chooseDayVM = StateObject(wrappedValue: ChooseDayViewModel(location: location))
     }
     
-    
     var body: some View {
         VStack {
             HStack(spacing: 0) {
@@ -24,7 +23,7 @@ struct ChooseDayView: View {
                         withAnimation(.easeInOut) {
                             chooseDayVM.selected = ["first", "second", "third"][index]
                             chooseDayVM.chosen = forecast.day
-                            print(index, chooseDayVM.selected)
+                            LoggingService.log.info("\(index), \(chooseDayVM.selected)")
                         }
                     }) {
                         VStack(alignment: .center) {
