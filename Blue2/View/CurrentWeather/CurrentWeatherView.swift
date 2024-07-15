@@ -35,11 +35,11 @@ struct CurrentWeatherView: View {
                 Spacer()
                 
                 HStack {
-                    Button("Sunny") { weatherViewModel.weather = WeatherModel.mockSunny() }
-                    Button("Sun + Cloud") { weatherViewModel.weather = WeatherModel.mockSunCloud() }
-                    Button("Cloudy") { weatherViewModel.weather = WeatherModel.mockCloudy() }
-                    Button("Rainy") { weatherViewModel.weather = WeatherModel.mockRainy() }
-                    Button("Storm") { weatherViewModel.weather = WeatherModel.mockStorm() }
+                    Button("Sunny") {  } .opacity(0)
+                    Button("Sun + Cloud") {  } .opacity(0)
+                    Button("Cloudy") {} .opacity(0)
+                    Button("Rainy") {} .opacity(0)
+                    Button("Storm") {} .opacity(0)
                 }
                 .padding()
             }

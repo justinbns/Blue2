@@ -26,26 +26,3 @@ struct WeatherModel {
     }
 }
 
-extension WeatherModel {
-    static func mockSunny() -> WeatherModel {
-        return WeatherModel(temperature: 25.0, humidity: 0.5, symbolName: "sun.max")
-    }
-
-    static func mockSunCloud() -> WeatherModel {
-        return WeatherModel(temperature: 22.0, humidity: 0.6, symbolName: "cloud.sun")
-    }
-
-    static func mockCloudy() -> WeatherModel {
-        return WeatherModel(temperature: 20.0, humidity: 0.7, symbolName: "cloud")
-    }
-
-    static func mockRainy() -> WeatherModel {
-        return WeatherModel(temperature: 18.0, humidity: 0.8, symbolName: "cloud.rain")
-    }
-
-    static func mockStorm() -> WeatherModel {
-        return WeatherModel(temperature: 16.0, humidity: 0.9, symbolName: "cloud.bolt.rain")
-    }
-}
-
-

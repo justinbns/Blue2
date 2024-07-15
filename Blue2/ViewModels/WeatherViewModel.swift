@@ -26,7 +26,7 @@ import SwiftUI
     
     var temperature: String {
         guard let temp = weather?.temperature else {
-            return "Connecting to Apple Weather Servers"
+            return "-"
         }
         return "\(Int(temp))°"
     }
