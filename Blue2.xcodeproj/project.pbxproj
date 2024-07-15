@@ -10,7 +10,6 @@
 		99F9715C2C3FB7B300DCEC51 /* WeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F9715B2C3FB7AF00DCEC51 /* WeatherView.swift */; };
 		99F9715F2C3FB7D500DCEC51 /* WeatherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F9715E2C3FB7D200DCEC51 /* WeatherManager.swift */; };
 		99F971612C3FBEF700DCEC51 /* SunRadiationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F971602C3FBEEA00DCEC51 /* SunRadiationManager.swift */; };
-		99F971632C40C6CC00DCEC51 /* env.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 99F971622C40C6C600DCEC51 /* env.xcconfig */; };
 		99F971652C40C70F00DCEC51 /* EnvManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F971642C40C70C00DCEC51 /* EnvManager.swift */; };
 		99F971682C40CAA300DCEC51 /* Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F971672C40CA9F00DCEC51 /* Converter.swift */; };
 		99F971712C40DE4400DCEC51 /* PenmenCalculation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F971702C40DE3D00DCEC51 /* PenmenCalculation.swift */; };
@@ -18,6 +17,8 @@
 		99F9717D2C40E57100DCEC51 /* BestTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F9717C2C40E56E00DCEC51 /* BestTimeView.swift */; };
 		99F971812C40E58B00DCEC51 /* ChooseDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F971802C40E58800DCEC51 /* ChooseDayView.swift */; };
 		99F971852C40E59C00DCEC51 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F971842C40E59700DCEC51 /* Weather.swift */; };
+		A25E94392C44C870008E922B /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25E94382C44C870008E922B /* LocationManager.swift */; };
+		A25E943B2C44C889008E922B /* LocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25E943A2C44C889008E922B /* LocationViewModel.swift */; };
 		F17B09502C3E451800887541 /* Blue2App.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17B094F2C3E451800887541 /* Blue2App.swift */; };
 		F17B09522C3E451800887541 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17B09512C3E451800887541 /* ContentView.swift */; };
 		F17B09542C3E451900887541 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F17B09532C3E451900887541 /* Assets.xcassets */; };
@@ -41,7 +42,6 @@
 		99F9715B2C3FB7AF00DCEC51 /* WeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherView.swift; sourceTree = "<group>"; };
 		99F9715E2C3FB7D200DCEC51 /* WeatherManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherManager.swift; sourceTree = "<group>"; };
 		99F971602C3FBEEA00DCEC51 /* SunRadiationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunRadiationManager.swift; sourceTree = "<group>"; };
-		99F971622C40C6C600DCEC51 /* env.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = env.xcconfig; sourceTree = "<group>"; };
 		99F971642C40C70C00DCEC51 /* EnvManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvManager.swift; sourceTree = "<group>"; };
 		99F971672C40CA9F00DCEC51 /* Converter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Converter.swift; sourceTree = "<group>"; };
 		99F971702C40DE3D00DCEC51 /* PenmenCalculation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PenmenCalculation.swift; sourceTree = "<group>"; };
@@ -49,6 +49,8 @@
 		99F9717C2C40E56E00DCEC51 /* BestTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestTimeView.swift; sourceTree = "<group>"; };
 		99F971802C40E58800DCEC51 /* ChooseDayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseDayView.swift; sourceTree = "<group>"; };
 		99F971842C40E59700DCEC51 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
+		A25E94382C44C870008E922B /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		A25E943A2C44C889008E922B /* LocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewModel.swift; sourceTree = "<group>"; };
 		F17B094C2C3E451800887541 /* Blue2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Blue2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F17B094F2C3E451800887541 /* Blue2App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blue2App.swift; sourceTree = "<group>"; };
 		F17B09512C3E451800887541 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 				99F971642C40C70C00DCEC51 /* EnvManager.swift */,
 				99F971602C3FBEEA00DCEC51 /* SunRadiationManager.swift */,
 				99F9715E2C3FB7D200DCEC51 /* WeatherManager.swift */,
+				A25E94382C44C870008E922B /* LocationManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -106,6 +109,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		A25E94362C44C84A008E922B /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				A25E943A2C44C889008E922B /* LocationViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		F17B09432C3E451800887541 = {
 			isa = PBXGroup;
 			children = (
@@ -125,7 +136,7 @@
 		F17B094E2C3E451800887541 /* Blue2 */ = {
 			isa = PBXGroup;
 			children = (
-				99F971622C40C6C600DCEC51 /* env.xcconfig */,
+				A25E94362C44C84A008E922B /* ViewModels */,
 				99F9717B2C40E4DB00DCEC51 /* Model */,
 				99F971762C40E48900DCEC51 /* View */,
 				99F971662C40CA8900DCEC51 /* Tools */,
@@ -210,7 +221,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				99F971632C40C6CC00DCEC51 /* env.xcconfig in Resources */,
 				F17B09582C3E451900887541 /* Preview Assets.xcassets in Resources */,
 				F17B09542C3E451900887541 /* Assets.xcassets in Resources */,
 			);
@@ -234,7 +244,9 @@
 				99F971712C40DE4400DCEC51 /* PenmenCalculation.swift in Sources */,
 				99F971652C40C70F00DCEC51 /* EnvManager.swift in Sources */,
 				99F9715F2C3FB7D500DCEC51 /* WeatherManager.swift in Sources */,
+				A25E943B2C44C889008E922B /* LocationViewModel.swift in Sources */,
 				F17B09502C3E451800887541 /* Blue2App.swift in Sources */,
+				A25E94392C44C870008E922B /* LocationManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -357,7 +369,6 @@
 		};
 		F17B095C2C3E451900887541 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 99F971622C40C6C600DCEC51 /* env.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -365,10 +376,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Blue2/Preview Content\"";
-				DEVELOPMENT_TEAM = 5V847CY3JM;
+				DEVELOPMENT_TEAM = FTP77G36XW;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "To get the weather for your location";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -379,7 +391,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.4;
@@ -387,7 +399,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.blue2.wedry;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -396,7 +409,6 @@
 		};
 		F17B095D2C3E451900887541 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 99F971622C40C6C600DCEC51 /* env.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -404,10 +416,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Blue2/Preview Content\"";
-				DEVELOPMENT_TEAM = 5V847CY3JM;
+				DEVELOPMENT_TEAM = FTP77G36XW;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "To get the weather for your location";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -418,7 +431,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.4;
@@ -426,7 +439,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.blue2.wedry;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
