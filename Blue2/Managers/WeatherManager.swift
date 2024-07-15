@@ -9,10 +9,11 @@ import Foundation
 import WeatherKit
 import CoreLocation
 
-class WeatherManager: ObservableObject, WeatherManagerProtocol {
+class WeatherManager: WeatherManagerProtocol {
     private let weatherService = WeatherService()
     private let ghiService = SunRadiationManager()
-
+    static var shared = WeatherManager()
+    
     func getTodayForecast(for location: CLLocation) async -> [WeatherTableData] {
         do {
             let weather = try await weatherService.weather(for: location)
@@ -114,6 +115,42 @@ class WeatherManager: ObservableObject, WeatherManagerProtocol {
         return []
     }
     
-    
+    func getThreeDayWeather(for location: CLLocation) async -> [WeatherTableDataSimple] {
+        do {
+            let weather = try await weatherService.weather(for: location)
+            let threeDayForecast = Array(weather.dailyForecast.forecast.prefix(3))
+            
+            return threeDayForecast.map { dayWeather in
+                let day = DateUtil.formatDateToDayOfWeek(dayWeather.date)
+                let symbol = dayWeather.symbolName
+                let highTemp = "\(Int(dayWeather.highTemperature.converted(to: .celsius).value))°C"
+                let lowTemp = "\(Int(dayWeather.lowTemperature.converted(to: .celsius).value))°C"
+                return WeatherTableDataSimple(day: day, symbol: symbol, highTemp: highTemp, lowTemp: lowTemp)
+            }
+            
+        } catch {
+            fatalError("\(error)")
+        }
+    }
+
+//        var symbol: String {
+//            weather?.currentWeather.symbolName ?? "xmark"
+//        }
+//
+//        var temp: String {
+//            guard let temp = weather?.currentWeather.temperature else {
+//                return "Connecting to Apple Weather Servers"
+//            }
+//            let convertedTemp = Int(temp.converted(to: .celsius).value)
+//            return "\(convertedTemp)"
+//        }
+//
+//        var humidity: String {
+//            guard let humidity = weather?.currentWeather.humidity else {
+//                return "N/A"
+//            }
+//            let convertedHumidity = Int(humidity * 100)
+//            return "\(convertedHumidity)%"
+//        }
 }
 

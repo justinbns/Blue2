@@ -52,3 +52,15 @@ func calculatePenman(temperature: Measurement<UnitTemperature>,
     
     return dryingTime
 }
+
+func formatHoursToHoursAndMinutes(temperature: Measurement<UnitTemperature>,
+                                  windSpeed: Measurement<UnitSpeed>,
+                                  humidity: Double,
+                                  ghi: Double,
+                                  clothesType: String) -> String {
+    let dryingtime = calculatePenman(temperature: temperature, windSpeed: windSpeed, humidity: humidity, ghi: ghi, clothesType: clothesType)
+    let totalMinutes = dryingtime! * 60
+    let hoursPart = Int(totalMinutes) / 60
+    let minutesPart = Int(totalMinutes) % 60
+    return "\(hoursPart) hrs \(minutesPart) mins"
+}

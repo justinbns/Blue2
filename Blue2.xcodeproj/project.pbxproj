@@ -14,6 +14,7 @@
 		997C8E7F2C44DAE000470C42 /* LocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997C8E7E2C44DADD00470C42 /* LocationView.swift */; };
 		997C8E832C44DDA300470C42 /* WeatherManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997C8E822C44DD9D00470C42 /* WeatherManagerProtocol.swift */; };
 		997C8E862C44E21E00470C42 /* DateUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997C8E852C44E21700470C42 /* DateUtility.swift */; };
+		997C8E882C451D1A00470C42 /* ChooseDayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997C8E872C451D0D00470C42 /* ChooseDayViewModel.swift */; };
 		99F9715C2C3FB7B300DCEC51 /* WeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F9715B2C3FB7AF00DCEC51 /* WeatherView.swift */; };
 		99F9715F2C3FB7D500DCEC51 /* WeatherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F9715E2C3FB7D200DCEC51 /* WeatherManager.swift */; };
 		99F971612C3FBEF700DCEC51 /* OpenWeatherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F971602C3FBEEA00DCEC51 /* OpenWeatherManager.swift */; };
@@ -51,6 +52,7 @@
 		997C8E7E2C44DADD00470C42 /* LocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationView.swift; sourceTree = "<group>"; };
 		997C8E822C44DD9D00470C42 /* WeatherManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherManagerProtocol.swift; sourceTree = "<group>"; };
 		997C8E852C44E21700470C42 /* DateUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtility.swift; sourceTree = "<group>"; };
+		997C8E872C451D0D00470C42 /* ChooseDayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseDayViewModel.swift; sourceTree = "<group>"; };
 		99F9715B2C3FB7AF00DCEC51 /* WeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherView.swift; sourceTree = "<group>"; };
 		99F9715E2C3FB7D200DCEC51 /* WeatherManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherManager.swift; sourceTree = "<group>"; };
 		99F971602C3FBEEA00DCEC51 /* OpenWeatherManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenWeatherManager.swift; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 		A25E94362C44C84A008E922B /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				997C8E872C451D0D00470C42 /* ChooseDayViewModel.swift */,
 				A25E943A2C44C889008E922B /* WeatherViewModel.swift */,
 			);
 			path = ViewModels;
@@ -282,6 +285,7 @@
 				997C8E832C44DDA300470C42 /* WeatherManagerProtocol.swift in Sources */,
 				99F971712C40DE4400DCEC51 /* PenmenCalculation.swift in Sources */,
 				997C8E862C44E21E00470C42 /* DateUtility.swift in Sources */,
+				997C8E882C451D1A00470C42 /* ChooseDayViewModel.swift in Sources */,
 				99F971652C40C70F00DCEC51 /* EnvManager.swift in Sources */,
 				99F9715F2C3FB7D500DCEC51 /* WeatherManager.swift in Sources */,
 				A25E943B2C44C889008E922B /* WeatherViewModel.swift in Sources */,

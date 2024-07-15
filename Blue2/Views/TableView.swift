@@ -8,47 +8,46 @@
 import SwiftUI
 
 struct TableView: View {
-    let title: String
+    let selected: String
     let forecast: [WeatherTableData]
     
     var body: some View {
-        Section(header: Text(title)) {
-            VStack(alignment: .leading, spacing: 10) {
-                // Table Header
+        List {
+            HStack {
+                Text("Start Drying")
+                    .frame(maxWidth: 100, alignment: .center)
+                    .foregroundColor(.black)
+                Text("")
+                    .frame(maxWidth: 110, alignment: .center)
+                    .foregroundColor(.black)
+                Text("Drying Duration")
+                    .frame(maxWidth: 140, alignment: .center)
+                    .foregroundColor(.black)
+            }
+            .listRowBackground(Color.white)
+            .font(.headline)
+            ForEach(forecast, id: \.date) { weather in
                 HStack {
-                    Text("Time")
-                        .frame(width: 80, alignment: .leading)
-                    Text("Temp")
-                        .frame(width: 80, alignment: .leading)
-//                    Text("RH")
-//                        .frame(width: 80, alignment: .leading)
-                    Text("ghi")
-                        .frame(width: 80, alignment: .leading)
-                    Text("DryingTime")
-                        .frame(width: 80, alignment: .leading)
-                   
-                }
-                .font(.headline)
-                .padding(.bottom, 5)
-                
-                // Table Rows
-                ForEach(forecast, id: \.date) { weather in
-                    HStack {
-                        Text(weather.date, style: .time)
-                            .frame(width: 80, alignment: .leading)
-                        Text("\(weather.temperature.value, specifier: "%.1f")°")
-                            .frame(width: 80, alignment: .leading)
-//                        Text("\(weather.humidity * 100, specifier: "%.0f")%")
-//                            .frame(width: 80, alignment: .leading)
-                        Text("\(weather.ghi, specifier: "%.0f")")
-                            .frame(width: 80, alignment: .leading)
-                        Text("\(weather.dryingTime!, specifier: "%.1f") hrs(s)")
-                            .frame(width: 80, alignment: .leading)
+                    Text(weather.date, style: .time)
+                        .frame(maxWidth: 100, alignment: .center)
+                        .foregroundColor(.black)
+                    HStack(spacing: 0) {
+                        Image(systemName: weather.symbolname)
+                            .frame(maxWidth: 55, alignment: .trailing)
+                            .foregroundColor(.black)
+                        Spacer().frame(width: 0)
+                        Text("\(weather.temperature.value, specifier: "%.0f")°")
+                            .frame(maxWidth: 55, alignment: .center)
+                            .foregroundColor(.black)
                     }
-                    Divider() // Divider between rows
+                    Text(weather.dryingTime)
+                        .frame(maxWidth: 140, alignment: .center)
+                        .foregroundColor(.black)
                 }
             }
-            .padding()
+            .listRowBackground(Color.white)
         }
+        .listStyle(.inset)
+        .scrollContentBackground(.hidden)
     }
 }

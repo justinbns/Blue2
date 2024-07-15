@@ -10,4 +10,5 @@ protocol WeatherManagerProtocol {
     func getTodayForecast(for location: CLLocation) async -> [WeatherTableData]
     func getTomorrowForecast(for location: CLLocation) async -> [WeatherTableData]
     func getTheDayAfterTomorrowForecast(for location: CLLocation) async -> [WeatherTableData]
+    func getThreeDayWeather(for location: CLLocation) async -> [WeatherTableDataSimple]
 }
