@@ -8,11 +8,19 @@
 import SwiftUI
 
 struct WeatherBackgroundView: View {
+    var condition: WeatherCondition
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            LinearGradient(
+                gradient: condition.gradient,
+                startPoint: .top,
+                endPoint: .bottom
+            )
+            .edgesIgnoringSafeArea(.all)
+            condition.assets
+        }
     }
 }
 
-#Preview {
-    WeatherBackgroundView()
-}
+

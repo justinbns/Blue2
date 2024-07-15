@@ -9,10 +9,14 @@ import SwiftUI
 
 struct GradientBackgroundView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        LinearGradient(
+            gradient: Gradient(stops: [
+                .init(color: Color("C9E9F8"), location: 0),
+                .init(color: Color("FFFFFF"), location: 0.63)
+            ]),
+            startPoint: .top,
+            endPoint: .bottom
+        )
+        .edgesIgnoringSafeArea(.all)
     }
-}
-
-#Preview {
-    GradientBackgroundView()
 }
