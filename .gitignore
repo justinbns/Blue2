@@ -5,3 +5,4 @@ env.xcconfig
 
 # Build artifacts
 *.xcodeproj/xcuserdata/
+*.xcodeproj/project.xcworkspace/xcuserdata/
