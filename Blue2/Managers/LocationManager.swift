@@ -8,11 +8,6 @@
 import Foundation
 import CoreLocation
 
-protocol LocationManagerDelegate: AnyObject {
-    func didUpdateLocation(latitude: Double, longitude: Double, cityName: String)
-    func didFailWithError(error: Error)
-}
-
 class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     private let locationManager = CLLocationManager()
     weak var delegate: LocationManagerDelegate?

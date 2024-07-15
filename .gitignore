@@ -1,1 +1,7 @@
 env.xcconfig
+
+# Xcode
+.DS_Store
+
+# Build artifacts
+*.xcodeproj/xcuserdata/
