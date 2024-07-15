@@ -15,9 +15,14 @@
 		997C8E832C44DDA300470C42 /* WeatherManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997C8E822C44DD9D00470C42 /* WeatherManagerProtocol.swift */; };
 		997C8E862C44E21E00470C42 /* DateUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997C8E852C44E21700470C42 /* DateUtility.swift */; };
 		997C8E882C451D1A00470C42 /* ChooseDayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997C8E872C451D0D00470C42 /* ChooseDayViewModel.swift */; };
+		997C8ED02C454BB000470C42 /* OpenWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997C8ECF2C454BAE00470C42 /* OpenWeather.swift */; };
+		997C8ED22C454BE000470C42 /* OpenWeatherProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997C8ED12C454BD800470C42 /* OpenWeatherProtocol.swift */; };
+		997C8ED52C454D1A00470C42 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 997C8ED42C454D1A00470C42 /* Alamofire */; };
+		997C8EDD2C4563BF00470C42 /* env.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 997C8EDC2C4563B600470C42 /* env.xcconfig */; };
+		997C8EDF2C45642B00470C42 /* template.env.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 997C8EDE2C45642300470C42 /* template.env.xcconfig */; };
 		99F9715C2C3FB7B300DCEC51 /* WeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F9715B2C3FB7AF00DCEC51 /* WeatherView.swift */; };
 		99F9715F2C3FB7D500DCEC51 /* WeatherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F9715E2C3FB7D200DCEC51 /* WeatherManager.swift */; };
-		99F971612C3FBEF700DCEC51 /* OpenWeatherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F971602C3FBEEA00DCEC51 /* OpenWeatherManager.swift */; };
+		99F971612C3FBEF700DCEC51 /* OpenWeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F971602C3FBEEA00DCEC51 /* OpenWeatherService.swift */; };
 		99F971652C40C70F00DCEC51 /* EnvManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F971642C40C70C00DCEC51 /* EnvManager.swift */; };
 		99F971712C40DE4400DCEC51 /* PenmenCalculation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F971702C40DE3D00DCEC51 /* PenmenCalculation.swift */; };
 		99F971782C40E49C00DCEC51 /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F971772C40E49A00DCEC51 /* TableView.swift */; };
@@ -53,9 +58,14 @@
 		997C8E822C44DD9D00470C42 /* WeatherManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherManagerProtocol.swift; sourceTree = "<group>"; };
 		997C8E852C44E21700470C42 /* DateUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtility.swift; sourceTree = "<group>"; };
 		997C8E872C451D0D00470C42 /* ChooseDayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseDayViewModel.swift; sourceTree = "<group>"; };
+		997C8ECF2C454BAE00470C42 /* OpenWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenWeather.swift; sourceTree = "<group>"; };
+		997C8ED12C454BD800470C42 /* OpenWeatherProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenWeatherProtocol.swift; sourceTree = "<group>"; };
+		997C8EDB2C45636800470C42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		997C8EDC2C4563B600470C42 /* env.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = env.xcconfig; sourceTree = "<group>"; };
+		997C8EDE2C45642300470C42 /* template.env.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = template.env.xcconfig; sourceTree = "<group>"; };
 		99F9715B2C3FB7AF00DCEC51 /* WeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherView.swift; sourceTree = "<group>"; };
 		99F9715E2C3FB7D200DCEC51 /* WeatherManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherManager.swift; sourceTree = "<group>"; };
-		99F971602C3FBEEA00DCEC51 /* OpenWeatherManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenWeatherManager.swift; sourceTree = "<group>"; };
+		99F971602C3FBEEA00DCEC51 /* OpenWeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenWeatherService.swift; sourceTree = "<group>"; };
 		99F971642C40C70C00DCEC51 /* EnvManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvManager.swift; sourceTree = "<group>"; };
 		99F971702C40DE3D00DCEC51 /* PenmenCalculation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PenmenCalculation.swift; sourceTree = "<group>"; };
 		99F971772C40E49A00DCEC51 /* TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
@@ -78,6 +88,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				997C8E7B2C44CF4400470C42 /* SwiftyBeaver in Frameworks */,
+				997C8ED52C454D1A00470C42 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				997C8E742C44CEE700470C42 /* LoggingService.swift */,
+				99F971602C3FBEEA00DCEC51 /* OpenWeatherService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -95,6 +107,7 @@
 		997C8E762C44CEFE00470C42 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				997C8ED12C454BD800470C42 /* OpenWeatherProtocol.swift */,
 				997C8E7C2C44DA7D00470C42 /* LocationManagerDelegate.swift */,
 				997C8E822C44DD9D00470C42 /* WeatherManagerProtocol.swift */,
 				997C8E772C44CF0500470C42 /* LoggingProtocol.swift */,
@@ -106,7 +119,6 @@
 			isa = PBXGroup;
 			children = (
 				99F971642C40C70C00DCEC51 /* EnvManager.swift */,
-				99F971602C3FBEEA00DCEC51 /* OpenWeatherManager.swift */,
 				99F9715E2C3FB7D200DCEC51 /* WeatherManager.swift */,
 				A25E94382C44C870008E922B /* LocationManager.swift */,
 			);
@@ -137,6 +149,7 @@
 		99F9717B2C40E4DB00DCEC51 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				997C8ECF2C454BAE00470C42 /* OpenWeather.swift */,
 				99F971842C40E59700DCEC51 /* Weather.swift */,
 			);
 			path = Models;
@@ -170,6 +183,9 @@
 		F17B094E2C3E451800887541 /* Blue2 */ = {
 			isa = PBXGroup;
 			children = (
+				997C8EDC2C4563B600470C42 /* env.xcconfig */,
+				997C8EDE2C45642300470C42 /* template.env.xcconfig */,
+				997C8EDB2C45636800470C42 /* Info.plist */,
 				997C8E762C44CEFE00470C42 /* Protocols */,
 				997C8E712C44CEC000470C42 /* Services */,
 				A25E94362C44C84A008E922B /* ViewModels */,
@@ -213,6 +229,7 @@
 			name = Blue2;
 			packageProductDependencies = (
 				997C8E7A2C44CF4400470C42 /* SwiftyBeaver */,
+				997C8ED42C454D1A00470C42 /* Alamofire */,
 			);
 			productName = Blue2;
 			productReference = F17B094C2C3E451800887541 /* Blue2.app */;
@@ -244,6 +261,7 @@
 			mainGroup = F17B09432C3E451800887541;
 			packageReferences = (
 				997C8E792C44CF4400470C42 /* XCRemoteSwiftPackageReference "SwiftyBeaver" */,
+				997C8ED32C454D1A00470C42 /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = F17B094D2C3E451800887541 /* Products */;
 			projectDirPath = "";
@@ -261,6 +279,8 @@
 			files = (
 				F17B09582C3E451900887541 /* Preview Assets.xcassets in Resources */,
 				F17B09542C3E451900887541 /* Assets.xcassets in Resources */,
+				997C8EDD2C4563BF00470C42 /* env.xcconfig in Resources */,
+				997C8EDF2C45642B00470C42 /* template.env.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,8 +291,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				997C8ED02C454BB000470C42 /* OpenWeather.swift in Sources */,
 				99F971812C40E58B00DCEC51 /* ChooseDayView.swift in Sources */,
-				99F971612C3FBEF700DCEC51 /* OpenWeatherManager.swift in Sources */,
+				99F971612C3FBEF700DCEC51 /* OpenWeatherService.swift in Sources */,
 				99F9715C2C3FB7B300DCEC51 /* WeatherView.swift in Sources */,
 				99F971852C40E59C00DCEC51 /* Weather.swift in Sources */,
 				F17B09522C3E451800887541 /* ContentView.swift in Sources */,
@@ -282,6 +303,7 @@
 				99F971782C40E49C00DCEC51 /* TableView.swift in Sources */,
 				997C8E752C44CEED00470C42 /* LoggingService.swift in Sources */,
 				997C8E782C44CF0C00470C42 /* LoggingProtocol.swift in Sources */,
+				997C8ED22C454BE000470C42 /* OpenWeatherProtocol.swift in Sources */,
 				997C8E832C44DDA300470C42 /* WeatherManagerProtocol.swift in Sources */,
 				99F971712C40DE4400DCEC51 /* PenmenCalculation.swift in Sources */,
 				997C8E862C44E21E00470C42 /* DateUtility.swift in Sources */,
@@ -299,6 +321,7 @@
 /* Begin XCBuildConfiguration section */
 		F17B09592C3E451900887541 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 997C8EDC2C4563B600470C42 /* env.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -413,6 +436,7 @@
 		};
 		F17B095C2C3E451900887541 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 997C8EDC2C4563B600470C42 /* env.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -424,6 +448,8 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Blue2/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Wedry;
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "To get the weather for your location";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
@@ -436,12 +462,12 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.4;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = nano2.Weather;
+				PRODUCT_BUNDLE_IDENTIFIER = com.blue2.wedry;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -461,10 +487,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Blue2/Preview Content\"";
-				DEVELOPMENT_TEAM = FTP77G36XW;
+				DEVELOPMENT_TEAM = 5V847CY3JM;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Blue2/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Wedry;
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "To get the weather for your location";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
@@ -477,12 +505,12 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.4;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = nano2.Weather;
+				PRODUCT_BUNDLE_IDENTIFIER = com.blue2.wedry;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -525,6 +553,14 @@
 				minimumVersion = 2.1.1;
 			};
 		};
+		997C8ED32C454D1A00470C42 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.9.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -532,6 +568,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 997C8E792C44CF4400470C42 /* XCRemoteSwiftPackageReference "SwiftyBeaver" */;
 			productName = SwiftyBeaver;
+		};
+		997C8ED42C454D1A00470C42 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 997C8ED32C454D1A00470C42 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
