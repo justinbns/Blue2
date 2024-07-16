@@ -40,3 +40,38 @@ struct WeatherTableDataSimple {
     let highTemp: String
     let lowTemp: String
 }
+
+struct WeatherModel {
+    let temperature: Double
+    let humidity: Double
+    let symbolName: String
+    
+    init(weather: Weather) {
+        self.temperature = weather.currentWeather.temperature.converted(to: .celsius).value
+        self.humidity = weather.currentWeather.humidity
+        self.symbolName = weather.currentWeather.symbolName
+    }
+    
+    init(temperature: Double, humidity: Double, symbolName: String) {
+        self.temperature = temperature
+        self.humidity = humidity
+        self.symbolName = symbolName
+    }
+    
+    var weatherCondition: WeatherCondition {
+            switch symbolName {
+            case "sun.max":
+                return .sunny
+            case "cloud.sun":
+                return .sunCloud
+            case "cloud":
+                return .cloudy
+            case "cloud.rain":
+                return .rainy
+            case "cloud.bolt.rain":
+                return .storm
+            default:
+                return .sunny
+            }
+    }
+}

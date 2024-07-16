@@ -12,7 +12,7 @@ struct WeatherView: View {
     
     var body: some View {
         VStack {
-            Text(weatherVM.cityName)
+//            Text(weatherVM.cityName)
             ChooseDayView(location: weatherVM.location)
         }
         
