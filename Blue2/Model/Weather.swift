@@ -14,7 +14,7 @@ struct WeatherTableData {
     let windSpeed: Measurement<UnitSpeed>
     let humidity: Double
     let ghi : Double
-    let dryingTime : String
+    let dryingTime : [String]
     let symbolname : String
     
     init(forecast: HourWeather, _ ghi : Double) {

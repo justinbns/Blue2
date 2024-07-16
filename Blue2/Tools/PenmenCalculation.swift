@@ -5,6 +5,7 @@
 //  Created by mac.bernanda on 12/07/24.
 //
 import Foundation
+import SwiftUI
 
 func calculatePenman(temperature: Measurement<UnitTemperature>,
                      windSpeed: Measurement<UnitSpeed>,
@@ -57,10 +58,32 @@ func formatHoursToHoursAndMinutes(temperature: Measurement<UnitTemperature>,
                                   windSpeed: Measurement<UnitSpeed>,
                                   humidity: Double,
                                   ghi: Double,
-                                  clothesType: String) -> String {
+                                  clothesType: String) -> [String] {
+    var result: [String] = []
     let dryingtime = calculatePenman(temperature: temperature, windSpeed: windSpeed, humidity: humidity, ghi: ghi, clothesType: clothesType)
     let totalMinutes = dryingtime! * 60
     let hoursPart = Int(totalMinutes) / 60
     let minutesPart = Int(totalMinutes) % 60
-    return "\(hoursPart) hrs \(minutesPart) mins"
+    result.append("\(totalMinutes)")
+    
+    if totalMinutes <= 180 {
+        result.append("Color.green")
+    } else if totalMinutes > 180 && totalMinutes <= 300 {
+        result.append("Color.yellow")
+    } else {
+        result.append("Color.red")
+    }
+    
+    result.append("\(hoursPart) hrs \(minutesPart) mins")
+    return result
+}
+
+func stringToColor(colorString: String) -> Color? {
+    let colorMaping: [String: Color] = [
+        "Color.green": .green,
+        "Color.yellow": .yellow,
+        "Color.red": .red
+    ]
+    
+    return colorMaping[colorString]
 }

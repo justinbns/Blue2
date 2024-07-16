@@ -61,17 +61,18 @@ struct ChooseDayView: View {
             .padding(.bottom, -20)
             if selected == "first" {
                 TableView(selected: selected, forecast: weatherManager.todayForecast)
-                    .transition(.opacity.combined(with: .slide))
+                    .transition(.slide.combined(with: .move(edge: .trailing)))
                     .animation(.easeInOut, value: selected)
                     .frame(width: .infinity, height: 200)
             } else if selected == "second" {
                 TableView(selected: selected, forecast: weatherManager.tomorrowForecast)
-                    .transition(.opacity.combined(with: .slide))
+                    .transition(.slide.combined(with: .move(edge: .trailing)))
                     .animation(.easeInOut, value: selected)
                     .frame(width: .infinity, height: 200)
             } else if selected == "third" {
                 TableView(selected: selected, forecast: weatherManager.dayAfterTomorrowForecast)
-                    .transition(.opacity.combined(with: .slide))
+//                    .transition(.push(from: .top).combined(with: .move(edge: .top)))
+                    .transition(.slide.combined(with: .move(edge: .trailing)))
                     .animation(.easeInOut, value: selected)
                     .frame(width: .infinity, height: 200)
             }
