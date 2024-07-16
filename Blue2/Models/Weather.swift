@@ -24,6 +24,23 @@ struct WeatherModel {
         self.humidity = humidity
         self.symbolName = symbolName
     }
+    
+    var weatherCondition: WeatherCondition {
+            switch symbolName {
+            case "sun.max":
+                return .sunny
+            case "cloud.sun":
+                return .sunCloud
+            case "cloud":
+                return .cloudy
+            case "cloud.rain":
+                return .rainy
+            case "cloud.bolt.rain":
+                return .storm
+            default:
+                return .sunny
+            }
+    }
 }
 
 
@@ -58,3 +75,4 @@ struct WeatherTableDataSimple {
     let highTemp: String
     let lowTemp: String
 }
+

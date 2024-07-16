@@ -2,7 +2,17 @@
 //  LocationView.swift
 //  Blue2
 //
-//  Created by Anthony on 16/07/24.
+//  Created by mac.bernanda on 15/07/24.
 //
 
-import Foundation
+import SwiftUI
+
+struct LocationView: View {
+    
+    
+    var body: some View {
+        ZStack {
+            
+        }
+    }
+}

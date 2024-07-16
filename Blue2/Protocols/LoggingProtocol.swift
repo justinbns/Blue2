@@ -1,8 +1,13 @@
 //
-//  LoggingProtocol.swift
+//  LoggingServiceProtocol.swift
 //  Blue2
 //
-//  Created by Anthony on 16/07/24.
+//  Created by mac.bernanda on 15/07/24.
 //
 
-import Foundation
+protocol LoggingProtocol {
+    func info(_ message: Any)
+    func debug(_ message: Any)
+    func error(_ message: Any)
+//    func redirectConsoleLogToLoggingService()
+}

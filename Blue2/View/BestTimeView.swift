@@ -2,7 +2,6 @@
 //  BestTimeView.swift
 //  Blue2
 //
-//  Created by Anthony on 16/07/24.
+//  Created by mac.bernanda on 12/07/24.
 //
 
-import Foundation

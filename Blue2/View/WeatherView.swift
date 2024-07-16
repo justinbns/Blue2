@@ -1,8 +1,26 @@
 //
 //  WeatherView.swift
-//  Blue2
+//  WiTher
 //
-//  Created by Anthony on 16/07/24.
+//  Created by mac.bernanda on 11/07/24.
 //
+import SwiftUI
+import CoreLocation
 
-import Foundation
+struct WeatherView: View {
+    @StateObject private var weatherVM = WeatherViewModel()
+    
+    var body: some View {
+        VStack {
+            Text(weatherVM.cityName)
+            ChooseDayView(location: weatherVM.location)
+        }
+        
+    }
+}
+
+
+
+#Preview {
+    WeatherView()
+}
