@@ -24,11 +24,18 @@ struct WeatherTableData {
         self.humidity = forecast.humidity
         self.ghi = ghi
         self.dryingTime = formatHoursToHoursAndMinutes(
-            temperature: temperature,
-            windSpeed: windSpeed,
-            humidity: humidity,
-            ghi: ghi,
-            clothesType: "shirt") // 0-3 ijo, 3-6 kuning, 6++ merah
-        self.symbolname = forecast.symbolName
+                    temperature: temperature,
+                    windSpeed: windSpeed,
+                    humidity: humidity,
+                    ghi: ghi,
+                    clothesType: "shirt") // 0-3 ijo, 3-6 kuning, 6++ merah
+                self.symbolname = forecast.symbolName
     }
+}
+
+struct WeatherTableDataSimple {
+    let day: String
+    let symbol: String
+    let highTemp: String
+    let lowTemp: String
 }

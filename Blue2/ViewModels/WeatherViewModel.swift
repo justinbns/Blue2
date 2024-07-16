@@ -7,15 +7,16 @@
 
 import Foundation
 import Combine
+import WeatherKit
 import CoreLocation
 
-@MainActor class LocationViewModel: ObservableObject, LocationManagerDelegate {
+class WeatherViewModel: ObservableObject, LocationManagerDelegate {
     @Published var authorizationStatus: CLAuthorizationStatus?
     @Published var cityName: String = "Unknown Location"
-    @Published var latitude: Double = -6.302620705878877
-    @Published var longitude: Double = 106.65203626737502
+    @Published var location: CLLocation = CLLocation(latitude: -6.302620705878877, longitude: 106.65203626737502)
     
     private var locationManager: LocationManager
+    private var weatherManager: WeatherManager = WeatherManager.shared
     
     init(locationManager: LocationManager = LocationManager()) {
         self.locationManager = locationManager
@@ -24,13 +25,12 @@ import CoreLocation
     }
     
     func didUpdateLocation(latitude: Double, longitude: Double, cityName: String) {
-        self.latitude = latitude
-        self.longitude = longitude
+        self.location = CLLocation(latitude: latitude, longitude: longitude)
         self.cityName = cityName
     }
     
     func didFailWithError(error: Error) {
-        print("Error fetching location: \(error)")
+        LoggingService.log.error(error)
     }
     
     private func updateAuthorizationStatus() {
