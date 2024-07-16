@@ -67,7 +67,7 @@ struct ChooseDayView: View {
             TableView(selected: chooseDayVM.selected, forecast: chooseDayVM.todayForecast)
                 .transition(.slide.combined(with: .move(edge: .trailing)))
                 .animation(.easeInOut, value: chooseDayVM.selected)
-                .frame(width: .infinity, height: 200)
+                .frame(width: .infinity, height: 250)
                 .task {
                     await chooseDayVM.getTodayForecast()
                 }
@@ -75,7 +75,7 @@ struct ChooseDayView: View {
             TableView(selected: chooseDayVM.selected, forecast: chooseDayVM.tomorrowForecast)
                 .transition(.slide.combined(with: .move(edge: .trailing)))
                 .animation(.easeInOut, value: chooseDayVM.selected)
-                .frame(width: .infinity, height: 200)
+                .frame(width: .infinity, height: 250)
                 .task {
                     await chooseDayVM.getTomorrowForecast()
                 }
@@ -83,7 +83,7 @@ struct ChooseDayView: View {
             TableView(selected: chooseDayVM.selected, forecast: chooseDayVM.dayAfterTomorrowForecast)
                 .transition(.slide.combined(with: .move(edge: .trailing)))
                 .animation(.easeInOut, value: chooseDayVM.selected)
-                .frame(width: .infinity, height: 200)
+                .frame(width: .infinity, height: 250)
                 .task {
                     await chooseDayVM.getDayAfterTomorrowForecast()
                 }
