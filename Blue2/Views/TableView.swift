@@ -13,40 +13,45 @@ struct TableView: View {
     
     var body: some View {
         List {
-            HStack {
-                Text("Start Drying")
-                    .frame(maxWidth: 100, alignment: .center)
-                    .foregroundColor(.black)
-                Text("")
-                    .frame(maxWidth: 110, alignment: .center)
-                    .foregroundColor(.black)
-                Text("Drying Duration")
-                    .frame(maxWidth: 140, alignment: .center)
-                    .foregroundColor(.black)
-            }
-            .listRowBackground(Color.white)
-            .font(.headline)
-            ForEach(forecast, id: \.date) { weather in
+            Section(header:
                 HStack {
-                    Text(weather.date, style: .time)
+                    Text("Start Drying")
                         .frame(maxWidth: 100, alignment: .center)
-                        .foregroundColor(.black)
-                    HStack(spacing: 0) {
-                        Image(systemName: weather.symbolname)
-                            .frame(maxWidth: 55, alignment: .trailing)
-                            .foregroundColor(.black)
-                        Spacer().frame(width: 0)
-                        Text("\(weather.temperature.value, specifier: "%.0f")°")
-                            .frame(maxWidth: 55, alignment: .center)
-                            .foregroundColor(.black)
-                    }
-                    Text(weather.dryingTime[2])
+                        .foregroundColor(Color.text)
+                    Text("")
+                        .frame(maxWidth: 110, alignment: .center)
+                        .foregroundColor(Color.text)
+                    Text("Drying Duration")
                         .frame(maxWidth: 140, alignment: .center)
-                        .foregroundColor(stringToColor(colorString: weather.dryingTime[1]))
+                        .foregroundColor(Color.text)
+                }
+                .frame(height: 30)
+                .listRowBackground(Color.base)
+                .font(.headline)
+            ) {
+                ForEach(forecast, id: \.date) { weather in
+                    HStack {
+                        Text(weather.date, style: .time)
+                            .frame(maxWidth: 100, alignment: .center)
+                            .foregroundColor(Color.text)
+                        HStack(spacing: 0) {
+                            Image(systemName: weather.symbolname)
+                                .frame(maxWidth: 55, alignment: .trailing)
+                                .foregroundColor(Color.text)
+                            Spacer().frame(width: 0)
+                            Text("\(weather.temperature.value, specifier: "%.0f")°")
+                                .frame(maxWidth: 55, alignment: .center)
+                                .foregroundColor(Color.text)
+                        }
+                        Text(weather.dryingTime[2])
+                            .frame(maxWidth: 140, alignment: .center)
+                            .foregroundColor(stringToColor(colorString: weather.dryingTime[1]))
+                    }
+                    .listRowBackground(Color.base)
                 }
             }
-            .listRowBackground(Color.white)
         }
+        .padding([.leading], 10)
         .listStyle(.inset)
         .scrollContentBackground(.hidden)
     }

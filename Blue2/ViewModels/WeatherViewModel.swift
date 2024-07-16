@@ -17,7 +17,7 @@ class WeatherViewModel: ObservableObject, LocationManagerDelegate {
     @Published var currentWeather: WeatherModel?
     
     private var locationManager: LocationManager
-    private var weatherManager: WeatherManager = WeatherManager.shared
+    var weatherManager: WeatherManager = WeatherManager.shared
     
     init(locationManager: LocationManager = LocationManager()) {
         self.locationManager = locationManager

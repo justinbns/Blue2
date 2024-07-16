@@ -27,7 +27,7 @@ class OpenWeatherService: OpenWeatherProtocol {
         GHIData(start: "10:00", end: "11:00", clearSkyGHI: 820.11, cloudySkyGHI: 504.69),
         GHIData(start: "11:00", end: "12:00", clearSkyGHI: 893.0, cloudySkyGHI: 570.07),
         GHIData(start: "12:00", end: "13:00", clearSkyGHI: 891.8, cloudySkyGHI: 671.75),
-        GHIData(start: "13:00", end: "14:00", clearSkyGHI: 816.63, cloudySkyGHI: 566.21),
+        GHIData(start: "13:00", end: "14:00", clearSkyGHI: 4816.63, cloudySkyGHI: 4966.21),
         GHIData(start: "14:00", end: "15:00", clearSkyGHI: 674.57, cloudySkyGHI: 298.5),
         GHIData(start: "15:00", end: "16:00", clearSkyGHI: 479.78, cloudySkyGHI: 218.66),
         GHIData(start: "16:00", end: "17:00", clearSkyGHI: 254.97, cloudySkyGHI: 113.0),

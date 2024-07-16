@@ -14,23 +14,22 @@ struct WeatherTableData {
     let temperature: Measurement<UnitTemperature>
     let windSpeed: Measurement<UnitSpeed>
     let humidity: Double
-    let ghi : Double
+    let ghiClear : Double
+    let ghiCloudy : Double
+    let dryingTimeValue : Double?
     let dryingTime : [String]
     let symbolname : String
     
-    init(forecast: HourWeather, _ ghi : Double) {
+    init(forecast: HourWeather, ghiClear : Double, ghiCloudy : Double) {
         self.date = forecast.date
         self.temperature = forecast.temperature
         self.windSpeed = forecast.wind.speed
         self.humidity = forecast.humidity
-        self.ghi = ghi
-        self.dryingTime = formatHoursToHoursAndMinutes(
-                    temperature: temperature,
-                    windSpeed: windSpeed,
-                    humidity: humidity,
-                    ghi: ghi,
-                    clothesType: "shirt") // 0-3 ijo, 3-6 kuning, 6++ merah
-                self.symbolname = forecast.symbolName
+        self.ghiClear = ghiClear
+        self.ghiCloudy = ghiCloudy
+        self.dryingTimeValue = calculateDryingTime(temperatureUnit: temperature, windSpeedUnit: windSpeed, humidity: humidity, ghiCloudySky: ghiCloudy, ghiClearSky: ghiClear)
+        self.dryingTime = formatHoursToHoursAndMinutes(value: dryingTimeValue) // 0-3 ijo, 3-6 kuning, 6++ merah
+        self.symbolname = forecast.symbolName
     }
 }
 
@@ -75,3 +74,9 @@ struct WeatherModel {
             }
     }
 }
+
+struct OptimalDrying {
+    let date: Date
+    let dryingTimeInMinutes: Int
+}
+

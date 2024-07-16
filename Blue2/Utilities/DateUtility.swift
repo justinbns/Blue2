@@ -29,11 +29,21 @@ class DateUtil {
         return dateFormatter.string(from: date)
     }
     
+    static func formatDateToStringTime(_ date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH:mm"
+        return dateFormatter.string(from: date)
+    }
+
+    
     static func formatDateToDayOfWeek(_ date: Date) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "E"
         return dateFormatter.string(from: date)
     }
     
-    
+    static func todayToString() -> String {
+        let today: Date = .now
+        return formatDateToDayOfWeek(today)
+    }
 }
