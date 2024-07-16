@@ -21,18 +21,13 @@ class WeatherManager: WeatherManagerProtocol {
             let hourlyForecast = weather.hourlyForecast
             
             let forecast = hourlyForecast
-                .filter { forecast in
-                    let calendar = Calendar.current
-                    let date = forecast.date
-                    let hour = calendar.component(.hour, from: date)
-                    return calendar.isDate(date, inSameDayAs: .now) && hour >= 6 && hour <= 17
-                }
+                .filter { Calendar.current.isDate($0.date, inSameDayAs: .now) }
                 .enumerated()
                 .map { index, forecast in
                     let ghi = ghiData[index]
                     return WeatherTableData(forecast: forecast, ghi.clearSkyGHI)
                 }
-
+            
             return forecast
             
         } catch {
@@ -51,19 +46,14 @@ class WeatherManager: WeatherManagerProtocol {
             
             
             let forecast = hourlyForecast
-                .filter { forecast in
-                    let calendar = Calendar.current
-                    let date = forecast.date
-                    let hour = calendar.component(.hour, from: date)
-                    return calendar.isDate(date, inSameDayAs: tomorrow) && hour >= 6 && hour <= 17
-                }
+                .filter { Calendar.current.isDate($0.date, inSameDayAs: tomorrow) }
                 .enumerated()
                 .map { index, forecast in
                     // Fetch corresponding GHI data based on index (assuming index corresponds to hour)
                     let ghi = ghiData[index]
                     return WeatherTableData(forecast: forecast, ghi.clearSkyGHI)
                 }
-
+            
             return forecast
             
         } catch {
@@ -81,20 +71,15 @@ class WeatherManager: WeatherManagerProtocol {
             let ghiData = await openWeatherService.fetchSolarRadiationData(for: location, at: theDayAfterTomorrow)
             
             let forecast = hourlyForecast
-                .filter { forecast in
-                    let calendar = Calendar.current
-                    let date = forecast.date
-                    let hour = calendar.component(.hour, from: date)
-                    return calendar.isDate(date, inSameDayAs: theDayAfterTomorrow) && hour >= 6 && hour <= 17
-                }
+                .filter { Calendar.current.isDate($0.date, inSameDayAs: theDayAfterTomorrow) }
                 .enumerated()
                 .map { index, forecast in
                     let ghi = ghiData[index]
                     return WeatherTableData(forecast: forecast, ghi.clearSkyGHI)
                 }
-
+            
             return forecast
-        
+            
         } catch {
             LoggingService.log.error("Failed to fetch weather data: \(error)")
         }
@@ -118,5 +103,16 @@ class WeatherManager: WeatherManagerProtocol {
         } catch {
             fatalError("\(error)")
         }
+    }
+    
+    func getWeather(latitude: Double, longitude: Double) async throws -> WeatherModel {
+        let location = CLLocation(latitude: latitude, longitude: longitude)
+        let weather = try await weatherService.weather(for: location)
+        let currentWeather = weather.currentWeather
+        let symbolName = currentWeather.symbolName
+        let temperature = currentWeather.temperature.converted(to: .celsius).value
+        let humidity = currentWeather.humidity
+        
+        return WeatherModel(temperature: temperature, humidity: humidity, symbolName: symbolName)
     }
 }
