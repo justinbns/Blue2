@@ -19,7 +19,7 @@
 		997C8ED22C454BE000470C42 /* OpenWeatherProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997C8ED12C454BD800470C42 /* OpenWeatherProtocol.swift */; };
 		997C8ED52C454D1A00470C42 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 997C8ED42C454D1A00470C42 /* Alamofire */; };
 		997C8EDD2C4563BF00470C42 /* env.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 997C8EDC2C4563B600470C42 /* env.xcconfig */; };
-		997C8EDF2C45642B00470C42 /* template.env.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 997C8EDE2C45642300470C42 /* template.env.xcconfig */; };
+		997C8EDF2C45642B00470C42 /* env.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 997C8EDE2C45642300470C42 /* env.xcconfig */; };
 		99F9715C2C3FB7B300DCEC51 /* WeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F9715B2C3FB7AF00DCEC51 /* WeatherView.swift */; };
 		99F9715F2C3FB7D500DCEC51 /* WeatherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F9715E2C3FB7D200DCEC51 /* WeatherManager.swift */; };
 		99F971612C3FBEF700DCEC51 /* OpenWeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F971602C3FBEEA00DCEC51 /* OpenWeatherService.swift */; };
@@ -62,7 +62,7 @@
 		997C8ED12C454BD800470C42 /* OpenWeatherProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenWeatherProtocol.swift; sourceTree = "<group>"; };
 		997C8EDB2C45636800470C42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		997C8EDC2C4563B600470C42 /* env.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = env.xcconfig; sourceTree = "<group>"; };
-		997C8EDE2C45642300470C42 /* template.env.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = template.env.xcconfig; sourceTree = "<group>"; };
+		997C8EDE2C45642300470C42 /* env.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = env.xcconfig; sourceTree = "<group>"; };
 		99F9715B2C3FB7AF00DCEC51 /* WeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherView.swift; sourceTree = "<group>"; };
 		99F9715E2C3FB7D200DCEC51 /* WeatherManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherManager.swift; sourceTree = "<group>"; };
 		99F971602C3FBEEA00DCEC51 /* OpenWeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenWeatherService.swift; sourceTree = "<group>"; };
@@ -184,7 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				997C8EDC2C4563B600470C42 /* env.xcconfig */,
-				997C8EDE2C45642300470C42 /* template.env.xcconfig */,
+				997C8EDE2C45642300470C42 /* env.xcconfig */,
 				997C8EDB2C45636800470C42 /* Info.plist */,
 				997C8E762C44CEFE00470C42 /* Protocols */,
 				997C8E712C44CEC000470C42 /* Services */,
@@ -280,7 +280,7 @@
 				F17B09582C3E451900887541 /* Preview Assets.xcassets in Resources */,
 				F17B09542C3E451900887541 /* Assets.xcassets in Resources */,
 				997C8EDD2C4563BF00470C42 /* env.xcconfig in Resources */,
-				997C8EDF2C45642B00470C42 /* template.env.xcconfig in Resources */,
+				997C8EDF2C45642B00470C42 /* env.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -444,7 +444,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Blue2/Preview Content\"";
-				DEVELOPMENT_TEAM = 5V847CY3JM;
+				DEVELOPMENT_TEAM = M793N4X6S7;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -462,12 +462,12 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.4;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.blue2.wedry;
+				PRODUCT_BUNDLE_IDENTIFIER = nano2.Weather;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -487,7 +487,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Blue2/Preview Content\"";
-				DEVELOPMENT_TEAM = 5V847CY3JM;
+				DEVELOPMENT_TEAM = M793N4X6S7;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -505,12 +505,12 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.4;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.blue2.wedry;
+				PRODUCT_BUNDLE_IDENTIFIER = nano2.Weather;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

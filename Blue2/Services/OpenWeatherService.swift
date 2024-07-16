@@ -8,7 +8,6 @@
 import Foundation
 import Combine
 import Alamofire
-import SwiftyJSON
 import CoreLocation
 
 class OpenWeatherService: OpenWeatherProtocol {

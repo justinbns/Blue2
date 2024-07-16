@@ -27,8 +27,13 @@ struct ChooseDayView: View {
                         }
                     }) {
                         VStack(alignment: .center) {
-                            Text(forecast.day)
-                                .font(.headline)
+                            if index == 0 {
+                                Text("Today")
+                                    .font(.headline)
+                            } else {
+                                Text(forecast.day)
+                                    .font(.headline)
+                            }
                             Image(systemName: forecast.symbol)
                                 .resizable()
                                 .scaledToFit()
@@ -58,7 +63,7 @@ struct ChooseDayView: View {
         
         if chooseDayVM.selected == "first" {
             TableView(selected: chooseDayVM.selected, forecast: chooseDayVM.todayForecast)
-                .transition(.opacity.combined(with: .slide))
+                .transition(.slide.combined(with: .move(edge: .trailing)))
                 .animation(.easeInOut, value: chooseDayVM.selected)
                 .frame(width: .infinity, height: 200)
                 .task {
@@ -66,7 +71,7 @@ struct ChooseDayView: View {
                 }
         } else if chooseDayVM.selected == "second" {
             TableView(selected: chooseDayVM.selected, forecast: chooseDayVM.tomorrowForecast)
-                .transition(.opacity.combined(with: .slide))
+                .transition(.slide.combined(with: .move(edge: .trailing)))
                 .animation(.easeInOut, value: chooseDayVM.selected)
                 .frame(width: .infinity, height: 200)
                 .task {
@@ -74,7 +79,7 @@ struct ChooseDayView: View {
                 }
         } else if chooseDayVM.selected == "third" {
             TableView(selected: chooseDayVM.selected, forecast: chooseDayVM.dayAfterTomorrowForecast)
-                .transition(.opacity.combined(with: .slide))
+                .transition(.slide.combined(with: .move(edge: .trailing)))
                 .animation(.easeInOut, value: chooseDayVM.selected)
                 .frame(width: .infinity, height: 200)
                 .task {

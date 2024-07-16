@@ -50,12 +50,7 @@ struct ChooseDayView: View {
                 .cornerRadius(9)
                 .padding()
                 .task {
-                    await weatherManager.getWeather(latitude: locationViewModel.latitude, longitude: locationViewModel.longitude)
-                }
-                .onAppear {
-                    Task {
-                        await weatherManager.getExtendedForecast(for: CLLocation(latitude: locationViewModel.latitude, longitude: locationViewModel.longitude))
-                    }
+                    await weatherManager.getThreeDayForecast(for: CLLocation(latitude: locationViewModel.latitude, longitude: locationViewModel.longitude))
                 }
             }
             .padding(.bottom, -20)
@@ -64,17 +59,31 @@ struct ChooseDayView: View {
                     .transition(.slide.combined(with: .move(edge: .trailing)))
                     .animation(.easeInOut, value: selected)
                     .frame(width: .infinity, height: 200)
+//                    .onAppear {
+//                        Task {
+//                            await weatherManager.getTodayForecast(for: CLLocation(latitude: locationViewModel.latitude, longitude: locationViewModel.longitude))
+//                        }
+//                    }
             } else if selected == "second" {
                 TableView(selected: selected, forecast: weatherManager.tomorrowForecast)
                     .transition(.slide.combined(with: .move(edge: .trailing)))
                     .animation(.easeInOut, value: selected)
                     .frame(width: .infinity, height: 200)
+//                    .onAppear {
+//                        Task {
+//                            await weatherManager.getTomorrowForecast()(for: CLLocation(latitude: locationViewModel.latitude, longitude: locationViewModel.longitude))
+//                        }
+//                    }
             } else if selected == "third" {
                 TableView(selected: selected, forecast: weatherManager.dayAfterTomorrowForecast)
-//                    .transition(.push(from: .top).combined(with: .move(edge: .top)))
                     .transition(.slide.combined(with: .move(edge: .trailing)))
                     .animation(.easeInOut, value: selected)
                     .frame(width: .infinity, height: 200)
+//                    .onAppear {
+//                        Task {
+//                            await weatherManager.getTheDayAfterTomorrowForecast(for: CLLocation(latitude: locationViewModel.latitude, longitude: locationViewModel.longitude))
+//                        }
+//                    }
             }
         }
         else {

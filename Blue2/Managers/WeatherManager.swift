@@ -21,7 +21,12 @@ class WeatherManager: WeatherManagerProtocol {
             let hourlyForecast = weather.hourlyForecast
             
             let forecast = hourlyForecast
-                .filter { Calendar.current.isDate($0.date, inSameDayAs: .now) }
+                .filter { forecast in
+                    let calendar = Calendar.current
+                    let date = forecast.date
+                    let hour = calendar.component(.hour, from: date)
+                    return calendar.isDate(date, inSameDayAs: .now) && hour >= 6 && hour <= 17
+                }
                 .enumerated()
                 .map { index, forecast in
                     let ghi = ghiData[index]
@@ -46,7 +51,12 @@ class WeatherManager: WeatherManagerProtocol {
             
             
             let forecast = hourlyForecast
-                .filter { Calendar.current.isDate($0.date, inSameDayAs: tomorrow) }
+                .filter { forecast in
+                    let calendar = Calendar.current
+                    let date = forecast.date
+                    let hour = calendar.component(.hour, from: date)
+                    return calendar.isDate(date, inSameDayAs: tomorrow) && hour >= 6 && hour <= 17
+                }
                 .enumerated()
                 .map { index, forecast in
                     // Fetch corresponding GHI data based on index (assuming index corresponds to hour)
@@ -71,7 +81,12 @@ class WeatherManager: WeatherManagerProtocol {
             let ghiData = await openWeatherService.fetchSolarRadiationData(for: location, at: theDayAfterTomorrow)
             
             let forecast = hourlyForecast
-                .filter { Calendar.current.isDate($0.date, inSameDayAs: theDayAfterTomorrow) }
+                .filter { forecast in
+                    let calendar = Calendar.current
+                    let date = forecast.date
+                    let hour = calendar.component(.hour, from: date)
+                    return calendar.isDate(date, inSameDayAs: theDayAfterTomorrow) && hour >= 6 && hour <= 17
+                }
                 .enumerated()
                 .map { index, forecast in
                     let ghi = ghiData[index]
@@ -104,24 +119,4 @@ class WeatherManager: WeatherManagerProtocol {
             fatalError("\(error)")
         }
     }
-
-//        var symbol: String {
-//            weather?.currentWeather.symbolName ?? "xmark"
-//        }
-//
-//        var temp: String {
-//            guard let temp = weather?.currentWeather.temperature else {
-//                return "Connecting to Apple Weather Servers"
-//            }
-//            let convertedTemp = Int(temp.converted(to: .celsius).value)
-//            return "\(convertedTemp)"
-//        }
-//
-//        var humidity: String {
-//            guard let humidity = weather?.currentWeather.humidity else {
-//                return "N/A"
-//            }
-//            let convertedHumidity = Int(humidity * 100)
-//            return "\(convertedHumidity)%"
-//        }
 }

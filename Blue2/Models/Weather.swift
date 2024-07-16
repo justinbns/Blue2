@@ -7,6 +7,7 @@
 
 import Foundation
 import WeatherKit
+import SwiftUI
 
 struct WeatherTableData {
     let date: Date
