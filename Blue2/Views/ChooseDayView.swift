@@ -30,19 +30,21 @@ struct ChooseDayView: View {
                             if index == 0 {
                                 Text("Today")
                                     .font(.headline)
+                                    .foregroundColor(Color.text)
                             } else {
                                 Text(forecast.day)
                                     .font(.headline)
+                                    .foregroundColor(Color.text)
                             }
                             Image(systemName: forecast.symbol)
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: 40, height: 40)
-                                .foregroundColor(.black)
+                                .foregroundColor(Color.text)
                         }
                         .frame(width: 125)
                         .padding(.vertical, 10)
-                        .background(chooseDayVM.chosen == forecast.day ? Color.white : .chooseDay.opacity(0))
+                        .background(chooseDayVM.chosen == forecast.day ? Color.selected : Color.chooseDay.opacity(0))
                         .foregroundColor(.black)
                         .cornerRadius(7)
                         .padding(chooseDayVM.chosen == forecast.day ? 5 : 0)
@@ -50,7 +52,7 @@ struct ChooseDayView: View {
                     }
                 }
             }
-            .background(.chooseDay.opacity(0.2))
+            .background(Color.chooseDay)
             .cornerRadius(9)
             .padding()
         }

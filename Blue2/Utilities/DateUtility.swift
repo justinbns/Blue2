@@ -35,5 +35,9 @@ class DateUtil {
         return dateFormatter.string(from: date)
     }
     
+    static func todayToString() -> String {
+        let today : Date = .now
+        return formatDateToDayOfWeek(today)
+    }
     
 }

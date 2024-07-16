@@ -16,36 +16,36 @@ struct TableView: View {
             HStack {
                 Text("Start Drying")
                     .frame(maxWidth: 100, alignment: .center)
-                    .foregroundColor(.black)
+                    .foregroundColor(Color.text)
                 Text("")
                     .frame(maxWidth: 110, alignment: .center)
-                    .foregroundColor(.black)
+                    .foregroundColor(Color.text)
                 Text("Drying Duration")
                     .frame(maxWidth: 140, alignment: .center)
-                    .foregroundColor(.black)
+                    .foregroundColor(Color.text)
             }
-            .listRowBackground(Color.white)
+            .listRowBackground(Color.base)
             .font(.headline)
             ForEach(forecast, id: \.date) { weather in
                 HStack {
                     Text(weather.date, style: .time)
                         .frame(maxWidth: 100, alignment: .center)
-                        .foregroundColor(.black)
+                        .foregroundColor(Color.text)
                     HStack(spacing: 0) {
                         Image(systemName: weather.symbolname)
                             .frame(maxWidth: 55, alignment: .trailing)
-                            .foregroundColor(.black)
+                            .foregroundColor(Color.text)
                         Spacer().frame(width: 0)
                         Text("\(weather.temperature.value, specifier: "%.0f")°")
                             .frame(maxWidth: 55, alignment: .center)
-                            .foregroundColor(.black)
+                            .foregroundColor(Color.text)
                     }
                     Text(weather.dryingTime[2])
                         .frame(maxWidth: 140, alignment: .center)
                         .foregroundColor(stringToColor(colorString: weather.dryingTime[1]))
                 }
             }
-            .listRowBackground(Color.white)
+            .listRowBackground(Color.base)
         }
         .listStyle(.inset)
         .scrollContentBackground(.hidden)
