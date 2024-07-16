@@ -28,46 +28,51 @@ func calculateSaturationVaporPressure(temperature: Double) -> Double{
 }
 
 func calculateActualVaporPressure(temperature: Double, humidity: Double) -> Double{
-    return humidity * calculateSaturationVaporPressure(temperature: temperature)
+    let saturationVaporPressure = calculateSaturationVaporPressure(temperature: temperature)
+    let actualVaporPressure = humidity * saturationVaporPressure
+    return actualVaporPressure
 }
 
 func calculateSlopeOfVaporPressure(temperature: Double) -> Double{
-    let temp = 4098 * calculateSaturationVaporPressure(temperature: temperature)
-    return temp/pow(temperature+237.3,2)
+    let saturationVaporPressure = calculateSaturationVaporPressure(temperature: temperature)
+    let numerator = 4098 * saturationVaporPressure
+    let denumerator = pow(temperature+237.3,2)
+    let slopeOfVaporPressure = numerator / denumerator
+    return slopeOfVaporPressure
 }
 
 func calculateRns(ghiCloudySky : Double,alpha : Double) -> Double{
-    return 0.408 * ((1 - alpha) * ghiCloudySky)
+    let rns = 0.408 * ((1 - alpha) * ghiCloudySky)
+    return rns
 }
 
 func calculateRnl(ghiCloudySky : Double,ghiClearSky : Double,temperature : Double,humidity: Double) -> Double{
+    let actualVaporPressure = calculateActualVaporPressure(temperature: temperature, humidity: humidity)
     let boltzman = 4.903e-9
-    let temp = pow((temperature + 273.16), 4)
-    let temp2 = 0.34 - 0.14 * sqrt(calculateActualVaporPressure(temperature: temperature, humidity: humidity))
-    let temp3 = (1.35 * ghiCloudySky/ghiClearSky) - 0.35
-    return boltzman * temp * temp2 * temp3
+    let rnl = boltzman * pow((temperature + 273.16), 4) * (0.34 - 0.14 * sqrt(actualVaporPressure)) * ((1.35 * ghiCloudySky/ghiClearSky) - 0.35)
+    return rnl
 }
 
 func calculateNetRadiation(ghiCloudySky : Double,ghiClearSky : Double,temperature : Double,humidity: Double,alpha : Double) -> Double{
-    return calculateRns(ghiCloudySky: ghiCloudySky, alpha: 0.23) + calculateRnl(ghiCloudySky: ghiCloudySky, ghiClearSky: ghiCloudySky, temperature: temperature, humidity: humidity)
-}
-
-func calculateAerodynamicResistance(windSpeed: Double) -> Double{
-    return 208/windSpeed
+    let rns = calculateRns(ghiCloudySky: ghiCloudySky, alpha: 0.23)
+    let rnl = calculateRnl(ghiCloudySky: ghiCloudySky, ghiClearSky: ghiCloudySky, temperature: temperature, humidity: humidity)
+    let netRadiation = rns + rnl
+    return netRadiation
 }
 
 func calculatePenmanMonteith(temperature: Double,windSpeed: Double,humidity: Double,ghiCloudySky : Double,ghiClearSky : Double) -> Double{
     let psychrometricConstant:Double = 0.067
+    let slopeOfVaporPressure = calculateSlopeOfVaporPressure(temperature: temperature)
+    let netRadiation = calculateNetRadiation(ghiCloudySky: ghiCloudySky, ghiClearSky: ghiClearSky, temperature: temperature, humidity: humidity, alpha: 0.23)
+    let saturationVaporPressure = calculateSaturationVaporPressure(temperature: temperature)
+    let actualVaporPressure = calculateActualVaporPressure(temperature: temperature, humidity: humidity)
+    let diffVaporPressure = saturationVaporPressure - actualVaporPressure
     
-    let temp1 = 0.408 * calculateSlopeOfVaporPressure(temperature: temperature) * calculateNetRadiation(ghiCloudySky: ghiCloudySky, ghiClearSky: ghiClearSky, temperature: temperature, humidity: humidity, alpha: 0.23)
+    let numerator = 0.408 * slopeOfVaporPressure * netRadiation + psychrometricConstant * 37.5/(temperature+273) * windSpeed * diffVaporPressure
     
-    let temp2 = psychrometricConstant * 37.5/(temperature+273) * windSpeed * (calculateSaturationVaporPressure(temperature: temperature) - calculateActualVaporPressure(temperature: temperature, humidity: humidity))
-    
-    let numerator =  temp1 + temp2
-    
-    let denumerator = calculateSlopeOfVaporPressure(temperature: temperature) + psychrometricConstant * ( 1 + 0.34 * windSpeed)
-    let E = numerator / denumerator
-    return E //Convert To second
+    let denumerator = slopeOfVaporPressure + psychrometricConstant * ( 1 + 0.34 * windSpeed)
+    let dryingRate = numerator / denumerator
+    return dryingRate //Convert To second
 }
 
 func calculateDryingTime(temperatureUnit: Measurement<UnitTemperature>,windSpeedUnit: Measurement<UnitSpeed>,humidity: Double,ghiCloudySky: Double,ghiClearSky:Double)->Double{
@@ -79,8 +84,9 @@ func calculateDryingTime(temperatureUnit: Measurement<UnitTemperature>,windSpeed
     let FMC:Double = 10
     let weight:Double = 10
     let waterToBeRemoved: Double = weight * (IMC-FMC)/100
-    let E: Double = calculatePenmanMonteith(temperature: temperature, windSpeed: windSpeed, humidity: humidity, ghiCloudySky: convertedGhiCloudySky, ghiClearSky: convertedGhiClearSky)
-    return waterToBeRemoved / E
+    let dryingRate = calculatePenmanMonteith(temperature: temperature, windSpeed: windSpeed, humidity: humidity, ghiCloudySky: convertedGhiCloudySky, ghiClearSky: convertedGhiClearSky)
+    let dryingTime = waterToBeRemoved / dryingRate
+    return dryingTime
 }
 
 func formatHoursToHoursAndMinutes(value : Double?) -> [String] {
