@@ -11,7 +11,7 @@ class ChooseDayViewModel: ObservableObject {
     let location : CLLocation
     
     @Published var selected: String = "first"
-    @Published var chosen: String = "none"
+    @Published var chosen: String = DateUtil.todayToString()
     @Published var threeDayForecast: [WeatherTableDataSimple] = []
     @Published var todayForecast: [WeatherTableData] = []
     @Published var tomorrowForecast: [WeatherTableData] = []
