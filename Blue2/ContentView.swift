@@ -4,16 +4,18 @@ struct ContentView: View {
     @StateObject private var locationVM = LocationViewModel()
     
     var body: some View {
-        ZStack {
+        ZStack (alignment: .bottom){
             CurrentWeatherView()
             
             VStack {
                 Spacer()
-                    .frame(height: 350)
+                    .frame(height: 390)
                 ChooseDayView(location: locationVM.location)
-                    
             }
+            
+        
         }
+        
     }
 }
 
