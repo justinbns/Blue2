@@ -12,10 +12,7 @@ struct ContentView: View {
                     .frame(height: 390)
                 ChooseDayView(location: locationVM.location)
             }
-            
-        
         }
-        
     }
 }
 

@@ -46,7 +46,6 @@ struct ChooseDayView: View {
                             .frame(width: 125)
                             .padding(.vertical, 10)
                             .background(chooseDayVM.chosen == forecast.day ? Color.selected : Color.chooseDay.opacity(0))
-                            .foregroundColor(.black)
                             .cornerRadius(7)
                             .padding(chooseDayVM.chosen == forecast.day ? 5 : 0)
                             .animation(.spring(response: 0.3, dampingFraction: 0.5, blendDuration: 0), value: chooseDayVM.selected)
@@ -61,7 +60,7 @@ struct ChooseDayView: View {
                         .transition(.slide.combined(with: .move(edge: .trailing)))
                         .animation(.easeInOut, value: chooseDayVM.selected)
                         .frame(width: .infinity, height: 250)
-                        .padding(.bottom,75)
+                        .padding(.bottom, 75)
                         .task {
                             await chooseDayVM.getTodayForecast()
                         }
@@ -84,28 +83,18 @@ struct ChooseDayView: View {
                             await chooseDayVM.getDayAfterTomorrowForecast()
                         }
                 }
-
+                
             }
-            
-            .padding(.bottom, -20)
             Color(Color.base)
-                .frame(height: .infinity)
                 .zIndex(-1000)
                 .clipShape(RoundedRectangle(cornerRadius: 30))
-            
         }
-        .background(.white)
         .onAppear {
             Task {
                 await chooseDayVM.getThreeDayForecast()
             }
-            
         }
-//        .ignoresSafeArea(.all)
-        
     }
-    
-    
 }
 #Preview{
     ContentView()

@@ -27,8 +27,7 @@ struct TableView: View {
                 }
                 .frame(height: 30)
                 .font(.headline)
-                .listRowBackground(Color.white)
-                    
+                .listRowBackground(Color.base)
             ) {
                 ForEach(forecast, id: \.date) { weather in
                     HStack {
@@ -48,16 +47,15 @@ struct TableView: View {
                             .frame(maxWidth: 140, alignment: .center)
                             .foregroundColor(stringToColor(colorString: weather.dryingTime[1]))
                     }
-                    
                     .listRowBackground(Color.base)
-                    
                 }
-                
             }
         }
         .padding([.leading], 10)
+        .padding(.top, -20)
         .listStyle(.inset)
         .scrollContentBackground(.hidden)
+        .background(Color.base)
     }
 }
 

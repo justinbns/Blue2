@@ -13,38 +13,28 @@ struct CurrentWeatherView: View {
     let timer = Timer.publish(every: 60, on: .main, in: .common).autoconnect() // Update every 60 seconds
     
     var body: some View {
-        ZStack {
+        ZStack(alignment: .topLeading) {
             WeatherBackgroundView(condition: weatherViewModel.weatherCondition)
             VStack(alignment: .leading) {
                 if let authorizationStatus = locationViewModel.authorizationStatus, authorizationStatus == .authorizedWhenInUse {
                     Text((locationViewModel.cityName))
                         .font(.custom("SF Pro", size: 16, relativeTo: .headline))
                         .foregroundStyle(.black)
-                        .padding(.top, 77.5)
-                        .padding(.leading, 10)
+                        .padding(.top, 85)
+                        .padding(.leading, 20)
                     
                     Text(weatherViewModel.temperature)
                         .font(.custom("SF Pro", size: 32, relativeTo: .largeTitle))
                         .foregroundStyle(.black)
-                        .padding(.leading, 10)
+                        .padding(.leading, 20)
                     
                     BestTimeView(location: locationViewModel.location)
-                        .padding([.top, .trailing], 10)
+                        .padding([.top, .leading], 15)
                 } else {
                     Text("Error loading location")
                         .padding()
                 }
-                
                 Spacer()
-                
-                HStack {
-                    Button("Sunny") {  } .opacity(0)
-                    Button("Sun + Cloud") {  } .opacity(0)
-                    Button("Cloudy") {} .opacity(0)
-                    Button("Rainy") {} .opacity(0)
-                    Button("Storm") {} .opacity(0)
-                }
-                .padding()
             }
             .padding()
             .task {
@@ -62,4 +52,3 @@ struct CurrentWeatherView: View {
 #Preview {
     ContentView()
 }
-
