@@ -55,6 +55,7 @@ struct ChooseDayView: View {
                 .background(Color.chooseDay)
                 .cornerRadius(9)
                 .padding()
+                .padding(.bottom, 2)
                 if chooseDayVM.selected == "first" {
                     TableView(selected: chooseDayVM.selected, forecast: chooseDayVM.todayForecast)
                         .transition(.opacity)

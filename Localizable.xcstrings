@@ -47,6 +47,7 @@
       }
     },
     "Cloudy" : {
+      "extractionState" : "stale",
       "localizations" : {
         "id" : {
           "stringUnit" : {
@@ -92,6 +93,7 @@
       }
     },
     "Rainy" : {
+      "extractionState" : "stale",
       "localizations" : {
         "id" : {
           "stringUnit" : {
@@ -112,6 +114,7 @@
       }
     },
     "Storm" : {
+      "extractionState" : "stale",
       "localizations" : {
         "id" : {
           "stringUnit" : {
@@ -122,6 +125,7 @@
       }
     },
     "Sun + Cloud" : {
+      "extractionState" : "stale",
       "localizations" : {
         "id" : {
           "stringUnit" : {
@@ -132,6 +136,7 @@
       }
     },
     "Sunny" : {
+      "extractionState" : "stale",
       "localizations" : {
         "id" : {
           "stringUnit" : {

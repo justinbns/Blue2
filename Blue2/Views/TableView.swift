@@ -12,23 +12,22 @@ struct TableView: View {
     let forecast: [WeatherTableData]
     
     var body: some View {
-        List {
-            Section(header:
-                HStack {
-                    Text("Start Drying")
-                        .frame(maxWidth: 100, alignment: .center)
-                        .foregroundColor(Color.text)
-                    Text("")
-                        .frame(maxWidth: 110, alignment: .center)
-                        .foregroundColor(Color.text)
-                    Text("Drying Duration")
-                        .frame(maxWidth: 140, alignment: .center)
-                        .foregroundColor(Color.text)
-                }
-                .frame(height: 30)
-                .font(.headline)
-                .listRowBackground(Color.base)
-            ) {
+        VStack {
+            HStack {
+                Text("Start Drying")
+                    .frame(maxWidth: 100, alignment: .center)
+                    .foregroundColor(Color.text)
+                Text("")
+                    .frame(maxWidth: 110, alignment: .center)
+                    .foregroundColor(Color.text)
+                Text("Drying Duration")
+                    .frame(maxWidth: 140, alignment: .center)
+                    .foregroundColor(Color.text)
+            }
+            .frame(height: 30)
+            .font(.headline)
+            .listRowBackground(Color.base)
+            List {
                 ForEach(forecast, id: \.date) { weather in
                     HStack {
                         Text(weather.date, style: .time)
