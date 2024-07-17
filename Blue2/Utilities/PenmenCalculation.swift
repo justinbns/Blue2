@@ -7,8 +7,6 @@
 import Foundation
 import SwiftUI
 
-import Foundation
-
 func convertGhi(ghi: Double) -> Double{
     let newGhi = ghi == 0.0 ? 1.0 : ghi
     return newGhi * 0.0864 / 24
@@ -89,33 +87,23 @@ func calculateDryingTime(temperatureUnit: Measurement<UnitTemperature>,windSpeed
     return dryingTime
 }
 
-func formatHoursToHoursAndMinutes(value : Double?) -> [String] {
-    var result: [String] = []
+func formatHoursToHoursAndMinutes(value : Double?) -> DryingTimeText {
     let dryingtime = value
 
     let totalMinutes = dryingtime! * 60
     let hoursPart = Int(totalMinutes) / 60
     let minutesPart = Int(totalMinutes) % 60
-    result.append("\(totalMinutes)")
+//    result.append("\(totalMinutes)")
     
+    var color : Color
     if totalMinutes <= 180 {
-        result.append("Color.green")
+        color = Color.green
     } else if totalMinutes > 180 && totalMinutes <= 300 {
-        result.append("Color.yellow")
+        color = Color.yellow
     } else {
-        result.append("Color.red")
+        color = Color.red
     }
     
-    result.append("\(hoursPart) hrs \(minutesPart) mins")
+    let result = DryingTimeText(color: color, hrs: hoursPart, min: minutesPart)
     return result
-}
-
-func stringToColor(colorString: String) -> Color? {
-    let colorMaping: [String: Color] = [
-        "Color.green": .green,
-        "Color.yellow": .yellow,
-        "Color.red": .red
-    ]
-    
-    return colorMaping[colorString]
 }
