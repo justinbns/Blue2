@@ -10,9 +10,9 @@ import SwiftUI
 @main
 struct Blue2App: App {
     init() {
-        LoggingService.log.info("App Started!")
-//        LoggingService.log.redirectConsoleLogToLoggingService()
+        LoggingService.log.info("Application is starting!")
     }
+    
     var body: some Scene {
         WindowGroup {
             ContentView()

@@ -8,38 +8,22 @@ import Foundation
 import CoreLocation
 
 class ChooseDayViewModel: ObservableObject {
-    let location : CLLocation
-    
-    @Published var selected: String = "first"
+    @Published var selected: ForecastDay = .today
     @Published var chosen: String = DateUtil.todayToString()
+    @Published var forecast : [WeatherTableData] = []
     @Published var threeDayForecast: [WeatherTableDataSimple] = []
-    @Published var todayForecast: [WeatherTableData] = []
-    @Published var tomorrowForecast: [WeatherTableData] = []
-    @Published var dayAfterTomorrowForecast: [WeatherTableData] = []
+    @Published var isLoading : Bool = true
     
     private var weatherManager: WeatherManager = WeatherManager.shared
     
-    init(location: CLLocation) {
-        self.location = location
-    }
-    
     @MainActor
-    func getTodayForecast() async {
-        todayForecast = await weatherManager.getTodayForecast(for: location)
+    func getForecast(at location: CLLocation, on day: ForecastDay) async {
+        LoggingService.log.debug("fetching forecast at \(location.description) on \(day) ")
+        forecast = await weatherManager.getForecast(for: location, on: day)
     }
-    
+
     @MainActor
-    func getTomorrowForecast() async {
-        tomorrowForecast = await weatherManager.getTomorrowForecast(for: location)
-    }
-    
-    @MainActor
-    func getDayAfterTomorrowForecast() async {
-        dayAfterTomorrowForecast = await weatherManager.getTheDayAfterTomorrowForecast(for: location)
-    }
-    
-    @MainActor
-    func getThreeDayForecast() async {
+    func getThreeDayForecast(for location : CLLocation) async {
         threeDayForecast = await weatherManager.getThreeDayWeather(for: location)
     }
 }

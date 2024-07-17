@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct TableView: View {
-    let selected: String
     let forecast: [WeatherTableData]
     
     var body: some View {

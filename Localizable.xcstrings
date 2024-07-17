@@ -4,6 +4,9 @@
     "" : {
 
     },
+    "-" : {
+
+    },
     "**Today** best drying time" : {
       "localizations" : {
         "id" : {
@@ -66,9 +69,6 @@
           }
         }
       }
-    },
-    "Error loading location" : {
-
     },
     "hrs" : {
       "extractionState" : "manual",
@@ -155,6 +155,9 @@
           }
         }
       }
+    },
+    "Unknown location" : {
+
     }
   },
   "version" : "1.0"

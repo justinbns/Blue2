@@ -11,23 +11,21 @@ import WeatherKit
 import CoreLocation
 
 class BestTimeViewModel: ObservableObject {
-    let location : CLLocation
-    @Published var optimalDrying: OptimalDrying = OptimalDrying(date: .now, dryingTimeInMinutes: 0)
+    @Published var optimalDrying: OptimalDrying?
+    @Published var isLoading : Bool = true
   
     private var weatherManager: WeatherManager = WeatherManager.shared
     
-    init(location: CLLocation) {
-        self.location = location
-    }
-    
     @MainActor
-    func getBestDryingTime() async {
-        let at = await weatherManager.getTodayForecast(for: location)
+    func getBestDryingTime(at location : CLLocation) async {
+        let at = await weatherManager.getForecast(for: location, on: ForecastDay.today)
         let bestTime = await weatherManager.getBestDryingTime(at: at)
         
         if let best = bestTime {
-            LoggingService.log.info("nilai \(best)")
             self.optimalDrying = best
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                self.isLoading = false
+            }
         }
     }
 }

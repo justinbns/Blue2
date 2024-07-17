@@ -42,7 +42,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
             if let error = error {
                 self.delegate?.didFailWithError(error: error)
             } else if let placemark = placemarks?.first, let city = placemark.locality {
-                self.delegate?.didUpdateLocation(
+                self.delegate?.didUpdateLocation (
                     latitude: location.coordinate.latitude,
                     longitude: location.coordinate.longitude,
                     cityName: city

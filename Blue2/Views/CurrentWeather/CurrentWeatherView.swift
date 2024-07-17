@@ -7,17 +7,24 @@
 
 import SwiftUI
 
-struct CurrentWeatherView: View {
+struct CurrentWeatherView<EmbeddedView: View>: View {
     @StateObject var weatherViewModel = WeatherViewModel()
-    @StateObject var locationViewModel = LocationViewModel()
-    let timer = Timer.publish(every: 60, on: .main, in: .common).autoconnect() // Update every 60 seconds
+    @EnvironmentObject var locationViewModel : LocationViewModel
+    private let timer = Timer.publish(every: 60, on: .main, in: .common).autoconnect()
+    
+    let embeddedView: EmbeddedView
+    
+    init(@ViewBuilder embeddedView: @escaping () -> EmbeddedView) {
+        self.embeddedView = embeddedView()
+    }
     
     var body: some View {
         ZStack(alignment: .topLeading) {
             WeatherBackgroundView(condition: weatherViewModel.weatherCondition)
+            
             VStack(alignment: .leading) {
-                if let authorizationStatus = locationViewModel.authorizationStatus, authorizationStatus == .authorizedWhenInUse {
-                    Text((locationViewModel.cityName))
+                if locationViewModel.authorizationStatus == .authorizedWhenInUse {
+                    Text(locationViewModel.cityName)
                         .font(.custom("SF Pro", size: 16, relativeTo: .headline))
                         .foregroundStyle(.black)
                         .padding(.top, 85)
@@ -27,25 +34,37 @@ struct CurrentWeatherView: View {
                         .font(.custom("SF Pro", size: 32, relativeTo: .largeTitle))
                         .foregroundStyle(.black)
                         .padding(.leading, 20)
-                    
-                    BestTimeView(location: locationViewModel.location)
-                        .padding([.top, .leading], 15)
-                } else {
-                    Text("Error loading location")
-                        .padding()
                 }
+                else {
+                    Text("Unknown location")
+                        .font(.custom("SF Pro", size: 16, relativeTo: .headline))
+                        .foregroundStyle(.black)
+                        .padding(.top, 85)
+                        .padding(.leading, 20)
+                    
+                    Text("-")
+                        .font(.custom("SF Pro", size: 32, relativeTo: .largeTitle))
+                        .foregroundStyle(.black)
+                        .padding(.leading, 20)
+                }
+                
+                embeddedView
                 Spacer()
             }
             .padding()
             .task {
-                await weatherViewModel.fetchWeather(latitude: locationViewModel.location.coordinate.latitude, longitude: locationViewModel.location.coordinate.longitude)
+                await fetchWeather()
             }
             .onReceive(timer) { _ in
                 Task {
-                    await weatherViewModel.fetchWeather(latitude: locationViewModel.location.coordinate.latitude, longitude: locationViewModel.location.coordinate.longitude)
+                    await fetchWeather()
                 }
             }
         }
+    }
+    
+    private func fetchWeather() async {
+        await weatherViewModel.fetchWeather(at: locationViewModel.location)
     }
 }
 

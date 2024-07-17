@@ -10,37 +10,41 @@ import SwiftUI
 import CoreLocation
 
 struct BestTimeView: View {
-    @StateObject private var bestTimeVM : BestTimeViewModel
-    
-    init(location: CLLocation) {
-        _bestTimeVM = StateObject(wrappedValue: BestTimeViewModel(location: location))
-    }
+    @StateObject private var bestTimeVM = BestTimeViewModel()
+    @EnvironmentObject var locationVM : LocationViewModel
     
     var body: some View {
-        ZStack{
-            VStack(alignment:.leading){
-                Text("**Today** best drying time")
-                    .font(.system(size: 15))
-                    .font(.title3)
-                HStack{
-                    Image(systemName: "clock")
-                        .font(.system(size: 24))
-                    Text("\(DateUtil.formatDateToStringTime(bestTimeVM.optimalDrying.date))")
-                        .fontWeight(.bold)
-                        .font(.system(size: 40))
+        ZStack {
+            if bestTimeVM.isLoading { BestTimeViewSkeleton() }
+            else {
+                if let optimalDrying = bestTimeVM.optimalDrying {
+                    VStack(alignment: .leading) {
+                        Text("**Today** best drying time")
+                            .font(.system(size: 15))
+                            .font(.title3)
+                        HStack {
+                            Image(systemName: "clock")
+                                .font(.system(size: 24))
+                            Text("\(DateUtil.formatDateToStringTime(optimalDrying.date))")
+                                .fontWeight(.bold)
+                                .font(.system(size: 40))
+                        }
+                        Text("Approximately dry at ")
+                            .font(.system(size: 15)) +
+                        Text("\(dryAt(date: optimalDrying.date, dryingTimeInMinutes: optimalDrying.dryingTimeInMinutes))")
+                            .fontWeight(.bold)
+                    }
                 }
-                Text("Approximately dry at ")
-                    .font(.system(size: 15)) +
-                Text("\(dryAt(date: bestTimeVM.optimalDrying.date, dryingTimeInMinutes: bestTimeVM.optimalDrying.dryingTimeInMinutes))")
-                    .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
             }
-        }.padding(16)
-            .background(Color(.bestTime))
-            .clipShape(RoundedRectangle(cornerRadius: 20))
-            .shadow(radius: 5)
-            .task {
-                await bestTimeVM.getBestDryingTime()
-            }
+        }
+        .padding(16)
+        .background(Color(.bestTime))
+        .clipShape(RoundedRectangle(cornerRadius: 20))
+        .shadow(radius: 5)
+        .task {
+            await bestTimeVM.getBestDryingTime(at: locationVM.location)
+        }
+        
     }
     
     func dryAt(date:Date, dryingTimeInMinutes: Int)->String{
@@ -53,5 +57,9 @@ struct BestTimeView: View {
             return DateUtil.formatDateToStringTime(date)
         }
     }
+}
+
+#Preview {
+    ContentView()
 }
 

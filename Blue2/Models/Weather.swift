@@ -46,6 +46,12 @@ struct WeatherTableDataSimple {
     let lowTemp: String
 }
 
+enum ForecastDay {
+    case today
+    case tomorrow
+    case dayAfterTomorrow
+}
+
 struct WeatherModel {
     let temperature: Double
     let humidity: Double

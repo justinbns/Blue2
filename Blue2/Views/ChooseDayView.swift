@@ -9,11 +9,8 @@ import SwiftUI
 import CoreLocation
 
 struct ChooseDayView: View {
-    @StateObject private var chooseDayVM: ChooseDayViewModel
-    
-    init(location: CLLocation) {
-        _chooseDayVM = StateObject(wrappedValue: ChooseDayViewModel(location: location))
-    }
+    @StateObject var chooseDayVM = ChooseDayViewModel()
+    @EnvironmentObject var locationVM : LocationViewModel
     
     var body: some View {
         ZStack(alignment: .bottom){
@@ -22,9 +19,9 @@ struct ChooseDayView: View {
                     ForEach(Array(chooseDayVM.threeDayForecast.enumerated()), id: \.element.day) { index, forecast in
                         Button(action: {
                             withAnimation(.easeInOut) {
-                                chooseDayVM.selected = ["first", "second", "third"][index]
+                                chooseDayVM.selected = [.today, .tomorrow, .dayAfterTomorrow][index]
                                 chooseDayVM.chosen = forecast.day
-                                LoggingService.log.info("\(index), \(chooseDayVM.selected)")
+
                             }
                         }) {
                             VStack(alignment: .center) {
@@ -56,34 +53,52 @@ struct ChooseDayView: View {
                 .cornerRadius(9)
                 .padding()
                 .padding(.bottom, 2)
-                if chooseDayVM.selected == "first" {
-                    TableView(selected: chooseDayVM.selected, forecast: chooseDayVM.todayForecast)
-                        .transition(.opacity)
-                        .animation(.easeInOut, value: chooseDayVM.selected)
-                        .frame(width: .infinity, height: 250)
-                        .padding(.bottom, 75)
-                        .task {
-                            await chooseDayVM.getTodayForecast()
-                        }
-                } else if chooseDayVM.selected == "second" {
-                    TableView(selected: chooseDayVM.selected, forecast: chooseDayVM.tomorrowForecast)
-                        .transition(.opacity)
-                        .animation(.easeInOut, value: chooseDayVM.selected)
-                        .frame(width: .infinity, height: 250)
-                        .padding(.bottom,75)
-                        .task {
-                            await chooseDayVM.getTomorrowForecast()
-                        }
-                } else if chooseDayVM.selected == "third" {
-                    TableView(selected: chooseDayVM.selected, forecast: chooseDayVM.dayAfterTomorrowForecast)
-                        .transition(.opacity)
-                        .animation(.easeInOut, value: chooseDayVM.selected)
-                        .frame(width: .infinity, height: 250)
-                        .padding(.bottom,75)
-                        .task {
-                            await chooseDayVM.getDayAfterTomorrowForecast()
-                        }
+                
+                TableView(forecast: chooseDayVM.forecast)
+                .transition(.opacity)
+                .animation(.easeInOut, value: chooseDayVM.selected)
+                .frame(width: .infinity, height: 250)
+                .padding(.bottom, 75)
+                .onAppear {
+                    Task {
+                        await chooseDayVM.getForecast(at: locationVM.location, on: .today)
+                    }
                 }
+                .onChange(of: chooseDayVM.selected) {
+                    Task {
+                        await chooseDayVM.getForecast(at: locationVM.location, on: chooseDayVM.selected)
+                    }
+                }
+
+                
+//                if chooseDayVM.selected == "first" {
+//                    TableView(selected: chooseDayVM.selected, forecast: chooseDayVM.todayForecast)
+//                        .transition(.opacity)
+//                        .animation(.easeInOut, value: chooseDayVM.selected)
+//                        .frame(width: .infinity, height: 250)
+//                        .padding(.bottom, 75)
+//                        .task {
+//                            await chooseDayVM.getForecast(at: locationVM.location, on: .today)
+//                        }
+//                } else if chooseDayVM.selected == "second" {
+//                    TableView(selected: chooseDayVM.selected, forecast: chooseDayVM.tomorrowForecast)
+//                        .transition(.opacity)
+//                        .animation(.easeInOut, value: chooseDayVM.selected)
+//                        .frame(width: .infinity, height: 250)
+//                        .padding(.bottom,75)
+//                        .task {
+//                            await chooseDayVM.getForecast(at: locationVM.location, on: .tomorrow)
+//                        }
+//                } else if chooseDayVM.selected == "third" {
+//                    TableView(selected: chooseDayVM.selected, forecast: chooseDayVM.dayAfterTomorrowForecast)
+//                        .transition(.opacity)
+//                        .animation(.easeInOut, value: chooseDayVM.selected)
+//                        .frame(width: .infinity, height: 250)
+//                        .padding(.bottom,75)
+//                        .task {
+//                            await chooseDayVM.getForecast(at: locationVM.location, on: .dayAfterTomorrow)
+//                        }
+//                }
                 
             }
             Color(Color.base)
@@ -92,11 +107,12 @@ struct ChooseDayView: View {
         }
         .onAppear {
             Task {
-                await chooseDayVM.getThreeDayForecast()
+                await chooseDayVM.getThreeDayForecast(for: locationVM.location)
             }
         }
     }
 }
+
 #Preview{
     ContentView()
 }

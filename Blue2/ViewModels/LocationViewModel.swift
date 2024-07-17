@@ -10,8 +10,9 @@ import Combine
 import CoreLocation
 
 class LocationViewModel: ObservableObject, LocationManagerDelegate {
-    @Published var authorizationStatus: CLAuthorizationStatus?
-    @Published var cityName: String = "Unknown Location"
+    @Published var authorizationStatus: CLAuthorizationStatus = .notDetermined
+    @Published var cityName: String = "-"
+    @Published var temperature: String = "-"
     @Published var location: CLLocation = CLLocation(latitude: -6.302620705878877, longitude: 106.65203626737502)
     
     private var locationManager: LocationManager

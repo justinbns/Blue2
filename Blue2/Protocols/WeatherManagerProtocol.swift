@@ -7,9 +7,7 @@
 import CoreLocation
 
 protocol WeatherManagerProtocol {
-    func getTodayForecast(for location: CLLocation) async -> [WeatherTableData]
-    func getTomorrowForecast(for location: CLLocation) async -> [WeatherTableData]
-    func getTheDayAfterTomorrowForecast(for location: CLLocation) async -> [WeatherTableData]
+    func getForecast(for location: CLLocation, on day: ForecastDay) async -> [WeatherTableData]
     func getThreeDayWeather(for location: CLLocation) async -> [WeatherTableDataSimple]
     func getBestDryingTime(at span: [WeatherTableData]) async -> OptimalDrying?
 }
