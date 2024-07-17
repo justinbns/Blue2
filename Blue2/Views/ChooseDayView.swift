@@ -57,7 +57,7 @@ struct ChooseDayView: View {
                 .padding()
                 if chooseDayVM.selected == "first" {
                     TableView(selected: chooseDayVM.selected, forecast: chooseDayVM.todayForecast)
-                        .transition(.slide.combined(with: .move(edge: .trailing)))
+                        .transition(.opacity)
                         .animation(.easeInOut, value: chooseDayVM.selected)
                         .frame(width: .infinity, height: 250)
                         .padding(.bottom, 75)
@@ -66,7 +66,7 @@ struct ChooseDayView: View {
                         }
                 } else if chooseDayVM.selected == "second" {
                     TableView(selected: chooseDayVM.selected, forecast: chooseDayVM.tomorrowForecast)
-                        .transition(.slide.combined(with: .move(edge: .trailing)))
+                        .transition(.opacity)
                         .animation(.easeInOut, value: chooseDayVM.selected)
                         .frame(width: .infinity, height: 250)
                         .padding(.bottom,75)
@@ -75,7 +75,7 @@ struct ChooseDayView: View {
                         }
                 } else if chooseDayVM.selected == "third" {
                     TableView(selected: chooseDayVM.selected, forecast: chooseDayVM.dayAfterTomorrowForecast)
-                        .transition(.slide.combined(with: .move(edge: .trailing)))
+                        .transition(.opacity)
                         .animation(.easeInOut, value: chooseDayVM.selected)
                         .frame(width: .infinity, height: 250)
                         .padding(.bottom,75)
