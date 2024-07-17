@@ -35,7 +35,7 @@ struct BestTimeView: View {
                     .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
             }
         }.padding(16)
-            .background(Color(.white))
+            .background(Color(.bestTime))
             .clipShape(RoundedRectangle(cornerRadius: 20))
             .shadow(radius: 5)
             .task {
