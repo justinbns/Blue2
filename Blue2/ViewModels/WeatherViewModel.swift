@@ -10,6 +10,7 @@ import Combine
 import WeatherKit
 import CoreLocation
 
+@MainActor
 class WeatherViewModel: ObservableObject, LocationManagerDelegate {
     @Published var authorizationStatus: CLAuthorizationStatus?
     @Published var cityName: String = "Unknown Location"

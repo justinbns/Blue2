@@ -17,7 +17,7 @@ struct WeatherTableData {
     let ghiClear : Double
     let ghiCloudy : Double
     let dryingTimeValue : Double?
-    let dryingTime : [String]
+    let dryingTime : DryingTimeText
     let symbolname : String
     
     init(forecast: HourWeather, ghiClear : Double, ghiCloudy : Double) {
@@ -31,6 +31,12 @@ struct WeatherTableData {
         self.dryingTime = formatHoursToHoursAndMinutes(value: dryingTimeValue) // 0-3 ijo, 3-6 kuning, 6++ merah
         self.symbolname = forecast.symbolName
     }
+}
+
+struct DryingTimeText {
+    let color : Color
+    let hrs : Int
+    let min : Int
 }
 
 struct WeatherTableDataSimple {

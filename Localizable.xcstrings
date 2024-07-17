@@ -1,0 +1,156 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "" : {
+
+    },
+    "**Today** best drying time" : {
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Waktu jemur **terbaik**"
+          }
+        }
+      }
+    },
+    "%.0f°" : {
+
+    },
+    "%@" : {
+
+    },
+    "%lld hrs %lld min" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$lld hrs %2$lld min"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$lld jam %2$lld menit"
+          }
+        }
+      }
+    },
+    "Approximately dry at " : {
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Estimasi kering pada "
+          }
+        }
+      }
+    },
+    "Cloudy" : {
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mendung"
+          }
+        }
+      }
+    },
+    "Drying Duration" : {
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Estimasi Kering"
+          }
+        }
+      }
+    },
+    "Error loading location" : {
+
+    },
+    "hrs" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "jam"
+          }
+        }
+      }
+    },
+    "mins" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "menit"
+          }
+        }
+      }
+    },
+    "Rainy" : {
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hujan"
+          }
+        }
+      }
+    },
+    "Start Drying" : {
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mulai Jemur"
+          }
+        }
+      }
+    },
+    "Storm" : {
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Badai"
+          }
+        }
+      }
+    },
+    "Sun + Cloud" : {
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Berawan"
+          }
+        }
+      }
+    },
+    "Sunny" : {
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cerah"
+          }
+        }
+      }
+    },
+    "Today" : {
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hari ini"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}

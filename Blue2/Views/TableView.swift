@@ -43,9 +43,9 @@ struct TableView: View {
                                 .frame(maxWidth: 55, alignment: .center)
                                 .foregroundColor(Color.text)
                         }
-                        Text(weather.dryingTime[2])
-                            .frame(maxWidth: 140, alignment: .center)
-                            .foregroundColor(stringToColor(colorString: weather.dryingTime[1]))
+                        Text("\(weather.dryingTime.hrs) hrs \(weather.dryingTime.min) min")
+                                    .frame(maxWidth: 140, alignment: .center)
+                                    .foregroundColor(Color(weather.dryingTime.color))
                     }
                     .listRowBackground(Color.base)
                 }
